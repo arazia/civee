@@ -1,0 +1,3 @@
+/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles/civeeEngine.dir
+/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles/edit_cache.dir
+/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles/rebuild_cache.dir
