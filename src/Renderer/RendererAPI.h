@@ -20,6 +20,8 @@ public:
   virtual void draw_indexed(const std::shared_ptr<VertexArray> &vertex_array) = 0;
 
   static API get_API() { return _API; }
+  static void set_API(const API api) { _API = api; }
+  
   static std::unique_ptr<RendererAPI> create();
   
 private:
