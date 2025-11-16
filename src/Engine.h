@@ -1,9 +1,14 @@
 #pragma once
-#include <SDL2/SDL.h>
+
 #include "Core/Config.h"
 #include "Core/GraphicsContext.h"
-#include <GL/glew.h>
+
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_stdinc.h>
+
+#include "Renderer/Shader.h"
+#include "Renderer/VertexArray.h"
+
 #include <memory>
 
 class Engine {
@@ -31,6 +36,11 @@ private:
   SDL_Window *_window = nullptr;
 
   std::unique_ptr<GraphicsContext> _context;
+  std::shared_ptr<Shader> _shader;
+  
+  std::shared_ptr<VertexArray> _vertex_array;
+  std::shared_ptr<VertexBuffer> _vertex_buffer; // The Data (Keep this!)
+  std::shared_ptr<IndexBuffer> _index_buffer;
 
   Uint64 _last_frame_time = 0;
   float _delta_time = 0.0f;

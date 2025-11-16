@@ -1,7 +1,7 @@
 CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o: \
- /home/arazia/Documents/PROJ/kungfucivee/src/Core/GraphicsContext.cpp \
+ /home/arazia/Documents/PROJ/civee/src/Core/GraphicsContext.cpp \
  /usr/include/stdc-predef.h \
- /home/arazia/Documents/PROJ/kungfucivee/src/Core/GraphicsContext.h \
+ /home/arazia/Documents/PROJ/civee/src/Core/GraphicsContext.h \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
@@ -231,9 +231,9 @@ CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o: \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h /usr/include/GL/glew.h \
- /usr/include/c++/15.2.1/cstddef /usr/include/c++/15.2.1/cstdint \
- /usr/include/GL/glu.h /usr/include/GL/gl.h \
+ /usr/include/SDL2/SDL_misc.h /usr/include/SDL2/SDL_video.h \
+ /home/arazia/Documents/PROJ/civee/vendor/glad/include/glad/glad.h \
+ /home/arazia/Documents/PROJ/civee/vendor/glad/include/KHR/khrplatform.h \
  /usr/include/c++/15.2.1/iostream /usr/include/c++/15.2.1/ostream \
  /usr/include/c++/15.2.1/bits/ostream.h /usr/include/c++/15.2.1/ios \
  /usr/include/c++/15.2.1/iosfwd /usr/include/c++/15.2.1/bits/stringfwd.h \
@@ -297,6 +297,7 @@ CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o: \
  /usr/include/c++/15.2.1/bits/charconv.h \
  /usr/include/c++/15.2.1/bits/basic_string.tcc \
  /usr/include/c++/15.2.1/bits/memory_resource.h \
+ /usr/include/c++/15.2.1/cstddef \
  /usr/include/c++/15.2.1/bits/uses_allocator.h \
  /usr/include/c++/15.2.1/bits/uses_allocator_args.h \
  /usr/include/c++/15.2.1/tuple \

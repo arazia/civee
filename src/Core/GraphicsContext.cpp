@@ -1,5 +1,6 @@
 #include "GraphicsContext.h"
-#include <GL/glew.h>
+#include <SDL_video.h>
+#include <glad/glad.h>
 #include <iostream>
 
 GraphicsContext::GraphicsContext(SDL_Window* window) 
@@ -11,12 +12,18 @@ GraphicsContext::~GraphicsContext() {
 
 void GraphicsContext::init() {
     _context = SDL_GL_CreateContext(_window_handle);
-    SDL_GL_MakeCurrent(_window_handle, _context);
+
+    if (SDL_GL_MakeCurrent(_window_handle, _context) != 0) {
+        std::cerr << "SDL Error: Could not make context current!\n" << SDL_GetError() << std::endl;
+        return;
+    }
     
     // Initialize GLEW (The OpenGL Loader)
-    if (glewInit() != GLEW_OK) {
-        std::cerr << "Failed to initialize GLEW!" << std::endl;
+    if (!gladLoadGLLoader((GLADloadproc) SDL_GL_GetProcAddress)) {
+        std::cerr << "Failed to initialize glad!" << std::endl;
+        return;
     }
+
 
     std::cout << "OpenGL Info:" << std::endl;
     std::cout << "  Vendor: " << glGetString(GL_VENDOR) << std::endl;

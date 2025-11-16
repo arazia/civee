@@ -7,7 +7,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/arazia/Documents/PROJ/kungfucivee/CMakeLists.txt"
+  "/home/arazia/Documents/PROJ/civee/CMakeLists.txt"
+  "CMakeFiles/4.1.2/CMakeCCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.1.2/CMakeSystem.cmake"
   "/usr/lib/cmake/SDL2/SDL2Config.cmake"
@@ -16,6 +17,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib/cmake/SDL2/SDL2Targets.cmake"
   "/usr/lib/cmake/SDL2/SDL2mainTargets-none.cmake"
   "/usr/lib/cmake/SDL2/SDL2mainTargets.cmake"
+  "/usr/share/cmake/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
   "/usr/share/cmake/Modules/CMakeGenericSystem.cmake"
@@ -24,26 +26,29 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
   "/usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+  "/usr/share/cmake/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake/Modules/Compiler/GNU.cmake"
   "/usr/share/cmake/Modules/FeatureSummary.cmake"
-  "/usr/share/cmake/Modules/FindGLEW.cmake"
   "/usr/share/cmake/Modules/FindOpenGL.cmake"
   "/usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake/Modules/FindPackageMessage.cmake"
+  "/usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake"
   "/usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake"
   "/usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+  "/usr/share/cmake/Modules/Linker/GNU-C.cmake"
   "/usr/share/cmake/Modules/Linker/GNU-CXX.cmake"
   "/usr/share/cmake/Modules/Linker/GNU.cmake"
   "/usr/share/cmake/Modules/Platform/Linker/GNU.cmake"
+  "/usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake"
   "/usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake"
   "/usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake"
+  "/usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-Initialize.cmake"
   "/usr/share/cmake/Modules/Platform/Linux.cmake"
   "/usr/share/cmake/Modules/Platform/UnixPaths.cmake"
-  "/usr/share/cmake/Modules/SelectLibraryConfigurations.cmake"
   )
 
 # The corresponding makefile is:
@@ -59,5 +64,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/Glad.dir/DependInfo.cmake"
   "CMakeFiles/civeeEngine.dir/DependInfo.cmake"
   )

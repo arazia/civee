@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/arazia/Documents/PROJ/kungfucivee
+CMAKE_SOURCE_DIR = /home/arazia/Documents/PROJ/civee
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/arazia/Documents/PROJ/kungfucivee/build
+CMAKE_BINARY_DIR = /home/arazia/Documents/PROJ/civee/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/civeeEngine.dir/depend.make
@@ -73,150 +73,285 @@ CMakeFiles/civeeEngine.dir/codegen:
 .PHONY : CMakeFiles/civeeEngine.dir/codegen
 
 CMakeFiles/civeeEngine.dir/src/main.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/src/main.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/src/main.cpp
+CMakeFiles/civeeEngine.dir/src/main.cpp.o: /home/arazia/Documents/PROJ/civee/src/main.cpp
 CMakeFiles/civeeEngine.dir/src/main.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/civeeEngine.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/main.cpp.o -MF CMakeFiles/civeeEngine.dir/src/main.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/main.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/civeeEngine.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/main.cpp.o -MF CMakeFiles/civeeEngine.dir/src/main.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/main.cpp.o -c /home/arazia/Documents/PROJ/civee/src/main.cpp
 
 CMakeFiles/civeeEngine.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/src/main.cpp > CMakeFiles/civeeEngine.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/main.cpp > CMakeFiles/civeeEngine.dir/src/main.cpp.i
 
 CMakeFiles/civeeEngine.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/src/main.cpp -o CMakeFiles/civeeEngine.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/main.cpp -o CMakeFiles/civeeEngine.dir/src/main.cpp.s
 
 CMakeFiles/civeeEngine.dir/src/Engine.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/src/Engine.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/src/Engine.cpp
+CMakeFiles/civeeEngine.dir/src/Engine.cpp.o: /home/arazia/Documents/PROJ/civee/src/Engine.cpp
 CMakeFiles/civeeEngine.dir/src/Engine.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/civeeEngine.dir/src/Engine.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Engine.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Engine.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Engine.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/src/Engine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/civeeEngine.dir/src/Engine.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Engine.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Engine.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Engine.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Engine.cpp
 
 CMakeFiles/civeeEngine.dir/src/Engine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Engine.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/src/Engine.cpp > CMakeFiles/civeeEngine.dir/src/Engine.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Engine.cpp > CMakeFiles/civeeEngine.dir/src/Engine.cpp.i
 
 CMakeFiles/civeeEngine.dir/src/Engine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Engine.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/src/Engine.cpp -o CMakeFiles/civeeEngine.dir/src/Engine.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Engine.cpp -o CMakeFiles/civeeEngine.dir/src/Engine.cpp.s
 
 CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/src/Core/GraphicsContext.cpp
+CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o: /home/arazia/Documents/PROJ/civee/src/Core/GraphicsContext.cpp
 CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/src/Core/GraphicsContext.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Core/GraphicsContext.cpp
 
 CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/src/Core/GraphicsContext.cpp > CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Core/GraphicsContext.cpp > CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.i
 
 CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/src/Core/GraphicsContext.cpp -o CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Core/GraphicsContext.cpp -o CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o: /home/arazia/Documents/PROJ/civee/src/Renderer/Shader.cpp
+CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Renderer/Shader.cpp
+
+CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Renderer/Shader.cpp > CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Renderer/Shader.cpp -o CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o: /home/arazia/Documents/PROJ/civee/src/Renderer/Buffer.cpp
+CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Renderer/Buffer.cpp
+
+CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Renderer/Buffer.cpp > CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Renderer/Buffer.cpp -o CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o: /home/arazia/Documents/PROJ/civee/src/Renderer/RendererAPI.cpp
+CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Renderer/RendererAPI.cpp
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Renderer/RendererAPI.cpp > CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Renderer/RendererAPI.cpp -o CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o: /home/arazia/Documents/PROJ/civee/src/Renderer/RenderCommand.cpp
+CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Renderer/RenderCommand.cpp
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Renderer/RenderCommand.cpp > CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Renderer/RenderCommand.cpp -o CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o: /home/arazia/Documents/PROJ/civee/src/Renderer/VertexArray.cpp
+CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Renderer/VertexArray.cpp
+
+CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Renderer/VertexArray.cpp > CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Renderer/VertexArray.cpp -o CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o: /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLShader.cpp
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLShader.cpp
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLShader.cpp > CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLShader.cpp -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o: /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLBuffer.cpp
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLBuffer.cpp
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLBuffer.cpp > CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLBuffer.cpp -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o: /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLRendererAPI.cpp
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLRendererAPI.cpp
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLRendererAPI.cpp > CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLRendererAPI.cpp -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.s
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o: /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLVertexArray.cpp
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o -MF CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o.d -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o -c /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLVertexArray.cpp
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLVertexArray.cpp > CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.i
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/src/Platform/OpenGL/OpenGLVertexArray.cpp -o CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.s
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui.cpp
+CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o: /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui.cpp
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o -c /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui.cpp
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.i
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.s
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_demo.cpp
+CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o: /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_demo.cpp
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o -c /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_demo.cpp
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_demo.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_demo.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.i
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_demo.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_demo.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.s
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_draw.cpp
+CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o: /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_draw.cpp
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o -c /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_draw.cpp
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_draw.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_draw.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.i
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_draw.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_draw.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.s
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_tables.cpp
+CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o: /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_tables.cpp
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_tables.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.o -c /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_tables.cpp
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_tables.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_tables.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.i
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_tables.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_tables.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_tables.cpp.s
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_widgets.cpp
+CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o: /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_widgets.cpp
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_widgets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o -c /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_widgets.cpp
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_widgets.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_widgets.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.i
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_widgets.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_widgets.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.s
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_sdl2.cpp
+CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o: /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_sdl2.cpp
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_sdl2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o -c /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_sdl2.cpp
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_sdl2.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_sdl2.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.i
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_sdl2.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_sdl2.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.s
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/civeeEngine.dir/flags.make
-CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_opengl3.cpp
+CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_opengl3.cpp
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o -c /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_opengl3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o -MF CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o -c /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_opengl3.cpp
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_opengl3.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_opengl3.cpp > CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.i
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends/imgui_impl_opengl3.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arazia/Documents/PROJ/civee/vendor/imgui/backends/imgui_impl_opengl3.cpp -o CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.s
 
 # Object files for target civeeEngine
 civeeEngine_OBJECTS = \
 "CMakeFiles/civeeEngine.dir/src/main.cpp.o" \
 "CMakeFiles/civeeEngine.dir/src/Engine.cpp.o" \
 "CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o" \
+"CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o" \
 "CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o" \
 "CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o" \
 "CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o" \
@@ -231,6 +366,15 @@ civeeEngine_EXTERNAL_OBJECTS =
 civeeEngine: CMakeFiles/civeeEngine.dir/src/main.cpp.o
 civeeEngine: CMakeFiles/civeeEngine.dir/src/Engine.cpp.o
 civeeEngine: CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o
+civeeEngine: CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o
 civeeEngine: CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o
 civeeEngine: CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o
 civeeEngine: CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o
@@ -240,14 +384,15 @@ civeeEngine: CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cp
 civeeEngine: CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o
 civeeEngine: CMakeFiles/civeeEngine.dir/build.make
 civeeEngine: CMakeFiles/civeeEngine.dir/compiler_depend.ts
-civeeEngine: /usr/lib/libSDL2main.a
+civeeEngine: libGlad.a
 civeeEngine: /usr/lib/libSDL2-2.0.so.0.3200.58
-civeeEngine: /usr/lib/libGLEW.so
 civeeEngine: /usr/lib/libGLX.so
 civeeEngine: /usr/lib/libOpenGL.so
 civeeEngine: CMakeFiles/civeeEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable civeeEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/arazia/Documents/PROJ/civee/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable civeeEngine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/civeeEngine.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Linking assets folder..."
+	/usr/bin/cmake -E create_symlink /home/arazia/Documents/PROJ/civee/assets /home/arazia/Documents/PROJ/civee/build/assets
 
 # Rule to build all files generated by this target.
 CMakeFiles/civeeEngine.dir/build: civeeEngine
@@ -258,6 +403,6 @@ CMakeFiles/civeeEngine.dir/clean:
 .PHONY : CMakeFiles/civeeEngine.dir/clean
 
 CMakeFiles/civeeEngine.dir/depend:
-	cd /home/arazia/Documents/PROJ/kungfucivee/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/arazia/Documents/PROJ/kungfucivee /home/arazia/Documents/PROJ/kungfucivee /home/arazia/Documents/PROJ/kungfucivee/build /home/arazia/Documents/PROJ/kungfucivee/build /home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles/civeeEngine.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/arazia/Documents/PROJ/civee/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/arazia/Documents/PROJ/civee /home/arazia/Documents/PROJ/civee /home/arazia/Documents/PROJ/civee/build /home/arazia/Documents/PROJ/civee/build /home/arazia/Documents/PROJ/civee/build/CMakeFiles/civeeEngine.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/civeeEngine.dir/depend
 

@@ -1,3 +1,4 @@
-/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles/civeeEngine.dir
-/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles/edit_cache.dir
-/home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles/rebuild_cache.dir
+/home/arazia/Documents/PROJ/civee/build/CMakeFiles/Glad.dir
+/home/arazia/Documents/PROJ/civee/build/CMakeFiles/civeeEngine.dir
+/home/arazia/Documents/PROJ/civee/build/CMakeFiles/edit_cache.dir
+/home/arazia/Documents/PROJ/civee/build/CMakeFiles/rebuild_cache.dir

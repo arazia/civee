@@ -1,8 +1,8 @@
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o: \
- /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_widgets.cpp \
+ /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_widgets.cpp \
  /usr/include/stdc-predef.h \
- /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui.h \
- /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imconfig.h \
+ /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui.h \
+ /home/arazia/Documents/PROJ/civee/vendor/imgui/imconfig.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/float.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
@@ -13,7 +13,7 @@ CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o: \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
  /usr/include/strings.h /usr/include/assert.h \
- /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imgui_internal.h \
+ /home/arazia/Documents/PROJ/civee/vendor/imgui/imgui_internal.h \
  /usr/include/stdio.h /usr/include/bits/types.h \
  /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
  /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__mbstate_t.h \
@@ -206,4 +206,4 @@ CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h \
- /home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/imstb_textedit.h
+ /home/arazia/Documents/PROJ/civee/vendor/imgui/imstb_textedit.h

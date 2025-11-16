@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/arazia/Documents/PROJ/kungfucivee
+CMAKE_SOURCE_DIR = /home/arazia/Documents/PROJ/civee
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/arazia/Documents/PROJ/kungfucivee/build
+CMAKE_BINARY_DIR = /home/arazia/Documents/PROJ/civee/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles /home/arazia/Documents/PROJ/kungfucivee/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arazia/Documents/PROJ/civee/build/CMakeFiles /home/arazia/Documents/PROJ/civee/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arazia/Documents/PROJ/kungfucivee/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arazia/Documents/PROJ/civee/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -115,6 +115,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named Glad
+
+# Build rule for target.
+Glad: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Glad
+.PHONY : Glad
+
+# fast build rule for target.
+Glad/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Glad.dir/build.make CMakeFiles/Glad.dir/build
+.PHONY : Glad/fast
 
 #=============================================================================
 # Target rules for targets named civeeEngine
@@ -177,6 +190,222 @@ src/Engine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Engine.cpp.s
 .PHONY : src/Engine.cpp.s
 
+src/Platform/OpenGL/OpenGLBuffer.o: src/Platform/OpenGL/OpenGLBuffer.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLBuffer.o
+
+# target to build an object file
+src/Platform/OpenGL/OpenGLBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLBuffer.cpp.o
+
+src/Platform/OpenGL/OpenGLBuffer.i: src/Platform/OpenGL/OpenGLBuffer.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLBuffer.i
+
+# target to preprocess a source file
+src/Platform/OpenGL/OpenGLBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLBuffer.cpp.i
+
+src/Platform/OpenGL/OpenGLBuffer.s: src/Platform/OpenGL/OpenGLBuffer.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLBuffer.s
+
+# target to generate assembly for a file
+src/Platform/OpenGL/OpenGLBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLBuffer.cpp.s
+
+src/Platform/OpenGL/OpenGLRendererAPI.o: src/Platform/OpenGL/OpenGLRendererAPI.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLRendererAPI.o
+
+# target to build an object file
+src/Platform/OpenGL/OpenGLRendererAPI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLRendererAPI.cpp.o
+
+src/Platform/OpenGL/OpenGLRendererAPI.i: src/Platform/OpenGL/OpenGLRendererAPI.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLRendererAPI.i
+
+# target to preprocess a source file
+src/Platform/OpenGL/OpenGLRendererAPI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLRendererAPI.cpp.i
+
+src/Platform/OpenGL/OpenGLRendererAPI.s: src/Platform/OpenGL/OpenGLRendererAPI.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLRendererAPI.s
+
+# target to generate assembly for a file
+src/Platform/OpenGL/OpenGLRendererAPI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLRendererAPI.cpp.s
+
+src/Platform/OpenGL/OpenGLShader.o: src/Platform/OpenGL/OpenGLShader.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLShader.o
+
+# target to build an object file
+src/Platform/OpenGL/OpenGLShader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLShader.cpp.o
+
+src/Platform/OpenGL/OpenGLShader.i: src/Platform/OpenGL/OpenGLShader.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLShader.i
+
+# target to preprocess a source file
+src/Platform/OpenGL/OpenGLShader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLShader.cpp.i
+
+src/Platform/OpenGL/OpenGLShader.s: src/Platform/OpenGL/OpenGLShader.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLShader.s
+
+# target to generate assembly for a file
+src/Platform/OpenGL/OpenGLShader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLShader.cpp.s
+
+src/Platform/OpenGL/OpenGLVertexArray.o: src/Platform/OpenGL/OpenGLVertexArray.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLVertexArray.o
+
+# target to build an object file
+src/Platform/OpenGL/OpenGLVertexArray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o
+.PHONY : src/Platform/OpenGL/OpenGLVertexArray.cpp.o
+
+src/Platform/OpenGL/OpenGLVertexArray.i: src/Platform/OpenGL/OpenGLVertexArray.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLVertexArray.i
+
+# target to preprocess a source file
+src/Platform/OpenGL/OpenGLVertexArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.i
+.PHONY : src/Platform/OpenGL/OpenGLVertexArray.cpp.i
+
+src/Platform/OpenGL/OpenGLVertexArray.s: src/Platform/OpenGL/OpenGLVertexArray.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLVertexArray.s
+
+# target to generate assembly for a file
+src/Platform/OpenGL/OpenGLVertexArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.s
+.PHONY : src/Platform/OpenGL/OpenGLVertexArray.cpp.s
+
+src/Renderer/Buffer.o: src/Renderer/Buffer.cpp.o
+.PHONY : src/Renderer/Buffer.o
+
+# target to build an object file
+src/Renderer/Buffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o
+.PHONY : src/Renderer/Buffer.cpp.o
+
+src/Renderer/Buffer.i: src/Renderer/Buffer.cpp.i
+.PHONY : src/Renderer/Buffer.i
+
+# target to preprocess a source file
+src/Renderer/Buffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.i
+.PHONY : src/Renderer/Buffer.cpp.i
+
+src/Renderer/Buffer.s: src/Renderer/Buffer.cpp.s
+.PHONY : src/Renderer/Buffer.s
+
+# target to generate assembly for a file
+src/Renderer/Buffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.s
+.PHONY : src/Renderer/Buffer.cpp.s
+
+src/Renderer/RenderCommand.o: src/Renderer/RenderCommand.cpp.o
+.PHONY : src/Renderer/RenderCommand.o
+
+# target to build an object file
+src/Renderer/RenderCommand.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o
+.PHONY : src/Renderer/RenderCommand.cpp.o
+
+src/Renderer/RenderCommand.i: src/Renderer/RenderCommand.cpp.i
+.PHONY : src/Renderer/RenderCommand.i
+
+# target to preprocess a source file
+src/Renderer/RenderCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.i
+.PHONY : src/Renderer/RenderCommand.cpp.i
+
+src/Renderer/RenderCommand.s: src/Renderer/RenderCommand.cpp.s
+.PHONY : src/Renderer/RenderCommand.s
+
+# target to generate assembly for a file
+src/Renderer/RenderCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.s
+.PHONY : src/Renderer/RenderCommand.cpp.s
+
+src/Renderer/RendererAPI.o: src/Renderer/RendererAPI.cpp.o
+.PHONY : src/Renderer/RendererAPI.o
+
+# target to build an object file
+src/Renderer/RendererAPI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o
+.PHONY : src/Renderer/RendererAPI.cpp.o
+
+src/Renderer/RendererAPI.i: src/Renderer/RendererAPI.cpp.i
+.PHONY : src/Renderer/RendererAPI.i
+
+# target to preprocess a source file
+src/Renderer/RendererAPI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.i
+.PHONY : src/Renderer/RendererAPI.cpp.i
+
+src/Renderer/RendererAPI.s: src/Renderer/RendererAPI.cpp.s
+.PHONY : src/Renderer/RendererAPI.s
+
+# target to generate assembly for a file
+src/Renderer/RendererAPI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.s
+.PHONY : src/Renderer/RendererAPI.cpp.s
+
+src/Renderer/Shader.o: src/Renderer/Shader.cpp.o
+.PHONY : src/Renderer/Shader.o
+
+# target to build an object file
+src/Renderer/Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o
+.PHONY : src/Renderer/Shader.cpp.o
+
+src/Renderer/Shader.i: src/Renderer/Shader.cpp.i
+.PHONY : src/Renderer/Shader.i
+
+# target to preprocess a source file
+src/Renderer/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.i
+.PHONY : src/Renderer/Shader.cpp.i
+
+src/Renderer/Shader.s: src/Renderer/Shader.cpp.s
+.PHONY : src/Renderer/Shader.s
+
+# target to generate assembly for a file
+src/Renderer/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.s
+.PHONY : src/Renderer/Shader.cpp.s
+
+src/Renderer/VertexArray.o: src/Renderer/VertexArray.cpp.o
+.PHONY : src/Renderer/VertexArray.o
+
+# target to build an object file
+src/Renderer/VertexArray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o
+.PHONY : src/Renderer/VertexArray.cpp.o
+
+src/Renderer/VertexArray.i: src/Renderer/VertexArray.cpp.i
+.PHONY : src/Renderer/VertexArray.i
+
+# target to preprocess a source file
+src/Renderer/VertexArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.i
+.PHONY : src/Renderer/VertexArray.cpp.i
+
+src/Renderer/VertexArray.s: src/Renderer/VertexArray.cpp.s
+.PHONY : src/Renderer/VertexArray.s
+
+# target to generate assembly for a file
+src/Renderer/VertexArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.s
+.PHONY : src/Renderer/VertexArray.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -200,6 +429,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/civeeEngine.dir/build.make CMakeFiles/civeeEngine.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+vendor/glad/src/glad.o: vendor/glad/src/glad.c.o
+.PHONY : vendor/glad/src/glad.o
+
+# target to build an object file
+vendor/glad/src/glad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Glad.dir/build.make CMakeFiles/Glad.dir/vendor/glad/src/glad.c.o
+.PHONY : vendor/glad/src/glad.c.o
+
+vendor/glad/src/glad.i: vendor/glad/src/glad.c.i
+.PHONY : vendor/glad/src/glad.i
+
+# target to preprocess a source file
+vendor/glad/src/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Glad.dir/build.make CMakeFiles/Glad.dir/vendor/glad/src/glad.c.i
+.PHONY : vendor/glad/src/glad.c.i
+
+vendor/glad/src/glad.s: vendor/glad/src/glad.c.s
+.PHONY : vendor/glad/src/glad.s
+
+# target to generate assembly for a file
+vendor/glad/src/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Glad.dir/build.make CMakeFiles/Glad.dir/vendor/glad/src/glad.c.s
+.PHONY : vendor/glad/src/glad.c.s
 
 vendor/imgui/backends/imgui_impl_opengl3.o: vendor/imgui/backends/imgui_impl_opengl3.cpp.o
 .PHONY : vendor/imgui/backends/imgui_impl_opengl3.o
@@ -377,6 +630,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Glad"
 	@echo "... civeeEngine"
 	@echo "... src/Core/GraphicsContext.o"
 	@echo "... src/Core/GraphicsContext.i"
@@ -384,9 +638,39 @@ help:
 	@echo "... src/Engine.o"
 	@echo "... src/Engine.i"
 	@echo "... src/Engine.s"
+	@echo "... src/Platform/OpenGL/OpenGLBuffer.o"
+	@echo "... src/Platform/OpenGL/OpenGLBuffer.i"
+	@echo "... src/Platform/OpenGL/OpenGLBuffer.s"
+	@echo "... src/Platform/OpenGL/OpenGLRendererAPI.o"
+	@echo "... src/Platform/OpenGL/OpenGLRendererAPI.i"
+	@echo "... src/Platform/OpenGL/OpenGLRendererAPI.s"
+	@echo "... src/Platform/OpenGL/OpenGLShader.o"
+	@echo "... src/Platform/OpenGL/OpenGLShader.i"
+	@echo "... src/Platform/OpenGL/OpenGLShader.s"
+	@echo "... src/Platform/OpenGL/OpenGLVertexArray.o"
+	@echo "... src/Platform/OpenGL/OpenGLVertexArray.i"
+	@echo "... src/Platform/OpenGL/OpenGLVertexArray.s"
+	@echo "... src/Renderer/Buffer.o"
+	@echo "... src/Renderer/Buffer.i"
+	@echo "... src/Renderer/Buffer.s"
+	@echo "... src/Renderer/RenderCommand.o"
+	@echo "... src/Renderer/RenderCommand.i"
+	@echo "... src/Renderer/RenderCommand.s"
+	@echo "... src/Renderer/RendererAPI.o"
+	@echo "... src/Renderer/RendererAPI.i"
+	@echo "... src/Renderer/RendererAPI.s"
+	@echo "... src/Renderer/Shader.o"
+	@echo "... src/Renderer/Shader.i"
+	@echo "... src/Renderer/Shader.s"
+	@echo "... src/Renderer/VertexArray.o"
+	@echo "... src/Renderer/VertexArray.i"
+	@echo "... src/Renderer/VertexArray.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... vendor/glad/src/glad.o"
+	@echo "... vendor/glad/src/glad.i"
+	@echo "... vendor/glad/src/glad.s"
 	@echo "... vendor/imgui/backends/imgui_impl_opengl3.o"
 	@echo "... vendor/imgui/backends/imgui_impl_opengl3.i"
 	@echo "... vendor/imgui/backends/imgui_impl_opengl3.s"

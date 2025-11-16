@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/arazia/Documents/PROJ/kungfucivee/include -I/home/arazia/Documents/PROJ/kungfucivee/vendor/imgui -I/home/arazia/Documents/PROJ/kungfucivee/vendor/imgui/backends -isystem /usr/include/SDL2
+CXX_INCLUDES = -I/home/arazia/Documents/PROJ/civee/include -I/home/arazia/Documents/PROJ/civee/src -I/home/arazia/Documents/PROJ/civee/src/Platform/OpenGL -I/home/arazia/Documents/PROJ/civee/vendor/glad/include -I/home/arazia/Documents/PROJ/civee/vendor/imgui -I/home/arazia/Documents/PROJ/civee/vendor/imgui/backends -isystem /usr/include/SDL2
 
 CXX_FLAGS = -std=gnu++17
 

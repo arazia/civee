@@ -1,8 +1,13 @@
 #include "Engine.h"
+#include "Renderer/Buffer.h"
 #include "imgui.h"
+
+#include "Renderer/RenderCommand.h"
+
 #include "backends/imgui_impl_sdl2.h"
 #include "backends/imgui_impl_opengl3.h"
 #include <iostream>
+
 
 bool Engine::init() {
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) != 0) {
@@ -36,13 +41,42 @@ bool Engine::init() {
   _context->init();
   _context->set_VSync(settings.VSync);
 
+  RenderCommand::init();  
 
-  glewExperimental = GL_TRUE; 
-  if (glewInit() != GLEW_OK) {
-    std::cerr << "GLEW Init err" << std::endl;
-    return false;
-  }
+  // TODO CHange this to be dynamic later
+  _shader = Shader::create("assets/shaders/Basic.vert", "assets/shaders/Basic.frag");
+  _shader->bind();
 
+  _shader->set_uniform_mat4("u_ViewProjection", glm::mat4(1.0f)); 
+  _shader->set_uniform_mat4("u_Transform", glm::mat4(1.0f));
+  _shader->set_uniform_float4("u_Color", glm::vec4(0.2f, 0.8f, 0.3f, 1.0f));
+
+  // Vertex Array Setup TODO Change this later currently example
+  _vertex_array = VertexArray::create();
+  
+  float vertices[3 * 3] = {
+    -0.5f, -0.5f, 0.0f,
+     0.5f, -0.5f, 0.0f,
+     0.0f,  0.5f, 0.0f
+  };
+
+
+  // std::cout << "DEBUG: Creating Vertex Buffer" << std::endl;
+  _vertex_buffer = VertexBuffer::create(vertices, sizeof(vertices));
+  BufferLayout layout = {
+    { ShaderDataType::Float3, "a_Position"}
+  };
+  _vertex_buffer->set_layout(layout);
+
+
+  _vertex_array->add_vertex_buffer(_vertex_buffer);
+  // std::cout << "DEBUG: VBO Added to VAO" << std::endl;
+
+  uint32_t indices[3] = { 0, 1, 2};
+  _index_buffer = IndexBuffer::create(indices, 3);
+  _vertex_array->set_index_buffer(_index_buffer);
+
+  // ImGUI Setup
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
   ImGuiIO& io = ImGui::GetIO(); (void) io;
@@ -54,10 +88,7 @@ bool Engine::init() {
   ImGui_ImplSDL2_InitForOpenGL(_window, SDL_GL_GetCurrentContext());
   ImGui_ImplOpenGL3_Init("#version 330");
 
-  
-  if (Config::get().Render.DepthTest) {
-    glEnable(GL_DEPTH_TEST);
-  }
+  // Global states
   _is_running = true;
   _last_frame_time = SDL_GetPerformanceCounter();
 
@@ -105,10 +136,17 @@ void Engine::update() {
 void Engine::render() {
   // Prelim
   auto& color = Config::get().Render.ClearColor;
-  glClearColor(color[0], color[1], color[2], color[3]);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  RenderCommand::set_clear_color({color[0], color[1], color[2], color[3]});
+  RenderCommand::clear();
+
+  // Bind shaders
+  if (_shader)
+      _shader->bind();
 
   // TODO Game Objects
+  // std::cout << "DEBUG: Pre-Draw" << std::endl;
+  RenderCommand::draw_indexed(_vertex_array);
+  // std::cout << "DEBUG: Post-Draw" << std::endl;
 
   // ImGui
   ImGui::Begin("Engine Settings");

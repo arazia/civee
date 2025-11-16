@@ -5,6 +5,15 @@ civeeEngine: \
   CMakeFiles/civeeEngine.dir/src/main.cpp.o \
   CMakeFiles/civeeEngine.dir/src/Engine.cpp.o \
   CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o \
+  CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o \
   CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o \
   CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o \
   CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_draw.cpp.o \
@@ -12,9 +21,9 @@ civeeEngine: \
   CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_widgets.cpp.o \
   CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o \
   CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o \
-  /usr/lib/libSDL2main.a \
+  libGlad.a \
   /usr/lib/libSDL2-2.0.so.0.3200.58 \
-  /usr/lib/libGLEW.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a \
   /usr/lib/libGLX.so \
   /usr/lib/libOpenGL.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
@@ -43,10 +52,6 @@ civeeEngine: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o \
-  /usr/lib32/libEGL.so.1 \
-  /usr/lib/libEGL.so.1 \
-  /usr/lib32/libGL.so.1 \
-  /usr/lib/libGL.so.1 \
   /usr/lib32/libGLdispatch.so.0 \
   /usr/lib/libGLdispatch.so.0 \
   /usr/lib32/libX11.so.6 \
@@ -71,6 +76,24 @@ CMakeFiles/civeeEngine.dir/src/Engine.cpp.o:
 
 CMakeFiles/civeeEngine.dir/src/Core/GraphicsContext.cpp.o:
 
+CMakeFiles/civeeEngine.dir/src/Renderer/Shader.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Renderer/Buffer.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RendererAPI.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Renderer/RenderCommand.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Renderer/VertexArray.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLShader.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLBuffer.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLRendererAPI.cpp.o:
+
+CMakeFiles/civeeEngine.dir/src/Platform/OpenGL/OpenGLVertexArray.cpp.o:
+
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui.cpp.o:
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/imgui_demo.cpp.o:
@@ -85,11 +108,11 @@ CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_sdl2.cpp.o:
 
 CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o:
 
-/usr/lib/libSDL2main.a:
+libGlad.a:
 
 /usr/lib/libSDL2-2.0.so.0.3200.58:
 
-/usr/lib/libGLEW.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a:
 
 /usr/lib/libGLX.so:
 
@@ -146,14 +169,6 @@ CMakeFiles/civeeEngine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o:
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o:
-
-/usr/lib32/libEGL.so.1:
-
-/usr/lib/libEGL.so.1:
-
-/usr/lib32/libGL.so.1:
-
-/usr/lib/libGL.so.1:
 
 /usr/lib32/libGLdispatch.so.0:
 
