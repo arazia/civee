@@ -1,4 +1,4 @@
-#include "Renderer/Buffer.h"
+#include "Buffer.h"
 #include "Renderer/RendererAPI.h"
 #include "Platform/OpenGL/OpenGLBuffer.h"
 #include "GL/glew.h"

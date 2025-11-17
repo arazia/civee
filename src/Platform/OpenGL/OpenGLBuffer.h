@@ -1,5 +1,5 @@
 #pragma once
-#include "Renderer/Buffer.h"
+#include "Renderer/Data/Buffer.h"
 
 class OpenGLVertexBuffer : public VertexBuffer {
 public:

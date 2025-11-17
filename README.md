@@ -4,15 +4,19 @@ Planned to have a 2.5D effect, where we render a 3D world but utilise 2D sprite 
 
 Currently Done:
 - Rudimentary Engine
+- VBO Pipeline
 
 Required:
-- Shader
-- Vertex Vector
-- Buffers
+- Keybind functionality
+- More mesh functionality
+- Orthogonal Perspective
+- actual sprites and stuff lmao
+- collision
+- and more
+- learn vulkan and implement it
 
 Dependencies:
 - imgui is currently used for a basic gui for the engine
-
 
 ## Building
 Create a `/build` folder in the root directory and run `cmake .. && make` within the `/build` directory to build the binary.

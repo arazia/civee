@@ -32,11 +32,18 @@ add_executable(${PROJECT_NAME}
 
     src/Core/GraphicsContext.cpp
     
-    src/Renderer/Shader.cpp
-    src/Renderer/Buffer.cpp
     src/Renderer/RendererAPI.cpp
     src/Renderer/RenderCommand.cpp
-    src/Renderer/VertexArray.cpp
+
+    src/Renderer/Data/Shader.cpp
+    src/Renderer/Data/Buffer.cpp
+    src/Renderer/Data/VertexArray.cpp
+
+    src/Renderer/Scene/Mesh.cpp
+    src/Renderer/Scene/Scene.cpp
+
+    src/Renderer/Camera/OrthographicCamera.cpp
+    src/Renderer/Camera/OrthographicCameraController.cpp
 
     src/Platform/OpenGL/OpenGLShader.cpp
     src/Platform/OpenGL/OpenGLBuffer.cpp

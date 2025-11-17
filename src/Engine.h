@@ -6,8 +6,9 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_stdinc.h>
 
-#include "Renderer/Shader.h"
-#include "Renderer/VertexArray.h"
+#include "Renderer/Camera/OrthographicCameraController.h"
+#include "Renderer/Data/Shader.h"
+#include "Renderer/Scene/Scene.h"
 
 #include <memory>
 
@@ -32,15 +33,17 @@ private:
   void update();
   void render();
 
+  void on_resize(int width, int height);
+
   bool _is_running = false;
   SDL_Window *_window = nullptr;
 
   std::unique_ptr<GraphicsContext> _context;
+
+  std::shared_ptr<Scene> _scene;
   std::shared_ptr<Shader> _shader;
-  
-  std::shared_ptr<VertexArray> _vertex_array;
-  std::shared_ptr<VertexBuffer> _vertex_buffer; // The Data (Keep this!)
-  std::shared_ptr<IndexBuffer> _index_buffer;
+
+  std::shared_ptr<OrthographicCameraController> _camera_controller;
 
   Uint64 _last_frame_time = 0;
   float _delta_time = 0.0f;

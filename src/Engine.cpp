@@ -1,12 +1,18 @@
 #include "Engine.h"
-#include "Renderer/Buffer.h"
+#include "Renderer/Scene/GameObject.h"
+#include "Renderer/Scene/Scene.h"
 #include "imgui.h"
 
 #include "Renderer/RenderCommand.h"
 
+#include "Utils/MeshUtils.h"
+#include "Utils/HexUtils.h"
+
 #include "backends/imgui_impl_sdl2.h"
 #include "backends/imgui_impl_opengl3.h"
+#include <glm/ext/matrix_transform.hpp>
 #include <iostream>
+#include <memory>
 
 
 bool Engine::init() {
@@ -37,44 +43,50 @@ bool Engine::init() {
     return false;
   }
 
+  // Create core systems
   _context = std::make_unique<GraphicsContext>(_window);
   _context->init();
   _context->set_VSync(settings.VSync);
-
   RenderCommand::init();  
 
-  // TODO CHange this to be dynamic later
   _shader = Shader::create("assets/shaders/Basic.vert", "assets/shaders/Basic.frag");
+  if (!_shader) {
+    std::cerr << "Shader creation err." << std::endl;
+    return false;
+  }
+  
+  float aspect_ratio = 1280.0f / 720.0f;
+  _camera_controller = std::make_shared<OrthographicCameraController>(aspect_ratio);
+  if (!_camera_controller) {
+    std::cerr << "Camera creation err." << std::endl;
+    return false;
+  }
+  _scene = std::make_shared<Scene>();
+  if (!_scene) {
+    std::cerr << "Scene creation err." << std::endl;
+    return false;
+  }
+
+  // Camera Setup TODO Change this to be dynamic later
+
+
+  // Shaders Setup TODO CHange this to be dynamic later
   _shader->bind();
 
   _shader->set_uniform_mat4("u_ViewProjection", glm::mat4(1.0f)); 
   _shader->set_uniform_mat4("u_Transform", glm::mat4(1.0f));
   _shader->set_uniform_float4("u_Color", glm::vec4(0.2f, 0.8f, 0.3f, 1.0f));
 
-  // Vertex Array Setup TODO Change this later currently example
-  _vertex_array = VertexArray::create();
-  
-  float vertices[3 * 3] = {
-    -0.5f, -0.5f, 0.0f,
-     0.5f, -0.5f, 0.0f,
-     0.0f,  0.5f, 0.0f
-  };
-
-
-  // std::cout << "DEBUG: Creating Vertex Buffer" << std::endl;
-  _vertex_buffer = VertexBuffer::create(vertices, sizeof(vertices));
-  BufferLayout layout = {
-    { ShaderDataType::Float3, "a_Position"}
-  };
-  _vertex_buffer->set_layout(layout);
-
-
-  _vertex_array->add_vertex_buffer(_vertex_buffer);
-  // std::cout << "DEBUG: VBO Added to VAO" << std::endl;
-
-  uint32_t indices[3] = { 0, 1, 2};
-  _index_buffer = IndexBuffer::create(indices, 3);
-  _vertex_array->set_index_buffer(_index_buffer);
+  // Scene Setup TODO change this to be dynamic later
+  auto hex_mesh = MeshUtils::create_hexagon();
+  auto map = HexUtils::generate_rectangle_map(10, 10);
+  for (const auto& hex : map) {
+    auto tile_object = std::make_shared<GameObject>(hex_mesh);
+    
+    tile_object->position = HexUtils::hex_to_world(hex, 1.1f);
+    
+    _scene->add_game_object(tile_object);
+  }
 
   // ImGUI Setup
   IMGUI_CHECKVERSION();
@@ -97,7 +109,6 @@ bool Engine::init() {
   return true;
 }
 
-// TODO THIS CURRENTLY HANDLES CLOSING THE GAME -> modularise/encapsulate to make it extendable
 void Engine::process_input() {
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
@@ -105,12 +116,16 @@ void Engine::process_input() {
     if (event.type == SDL_QUIT) {
         _is_running = false;
     }
-    if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE) {
-        if (event.window.windowID == SDL_GetWindowID(_window)) {
-            _is_running = false;
-        }
-    }
-    }
+
+    if (event.type == SDL_WINDOWEVENT && 
+      event.window.event == SDL_WINDOWEVENT_RESIZED) 
+    {
+      on_resize(event.window.data1, event.window.data2);
+    }    
+
+    _camera_controller->on_event(event);
+    
+  }
 }
 
 void Engine::update() {
@@ -122,31 +137,28 @@ void Engine::update() {
   ImGui_ImplSDL2_NewFrame();
   ImGui::NewFrame();
 
+  
+  auto pos = _camera_controller->get_camera()->get_position();
+
   // Example Engine UI
   // We will eventually move this to an "EditorLayer" class
   {
       ImGui::Begin("Engine Stats");
       ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
       ImGui::Text("Delta Time: %.4f", _delta_time);
+      ImGui::Text("Coords: %.1f %.1f %.1f", pos.x, pos.y, pos.z);
       ImGui::End();
   }
-  
+
+  // Camera Movement TODO
+  _camera_controller->on_update(_delta_time);  
 }
 
 void Engine::render() {
   // Prelim
-  auto& color = Config::get().Render.ClearColor;
-  RenderCommand::set_clear_color({color[0], color[1], color[2], color[3]});
-  RenderCommand::clear();
-
-  // Bind shaders
-  if (_shader)
-      _shader->bind();
-
-  // TODO Game Objects
-  // std::cout << "DEBUG: Pre-Draw" << std::endl;
-  RenderCommand::draw_indexed(_vertex_array);
-  // std::cout << "DEBUG: Post-Draw" << std::endl;
+  // auto& color = Config::get().Render.ClearColor;
+  // RenderCommand::set_clear_color({color[0], color[1], color[2], color[3]});
+  _scene->render(_camera_controller->get_camera(), _shader);  
 
   // ImGui
   ImGui::Begin("Engine Settings");
@@ -180,4 +192,8 @@ void Engine::shutdown() {
   // Cleanup SDL and OpenGL
   SDL_DestroyWindow(_window);
   SDL_Quit();
+}
+
+void Engine::on_resize(int width, int height) {
+  _camera_controller->on_resize((float)width, (float)height);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Renderer/Mesh.h"
+#include "Renderer/Scene/Mesh.h"
 #include <cmath>
 
 class MeshUtils {
@@ -31,7 +31,7 @@ public:
       float angle_rad = glm::radians(angle_deg);
 
       vertices.push_back({
-        { size * cos(angle_rad), size * sin(angle_rad), 0.0f },
+        { size * cos(angle_rad), 0.0f, size * sin(angle_rad) },
         color                    
       });
     }
