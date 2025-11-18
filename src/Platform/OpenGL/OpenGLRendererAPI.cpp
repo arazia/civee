@@ -24,3 +24,8 @@ void OpenGLRendererAPI::draw_indexed(const std::shared_ptr<VertexArray> &vertex_
 void OpenGLRendererAPI::set_viewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) {
     glViewport(x, y, width, height);
 }
+
+void OpenGLRendererAPI::draw_indexed_instanced(const std::shared_ptr<VertexArray> &vertex_array, uint32_t count) {
+    vertex_array->bind();
+    glDrawElementsInstanced(GL_TRIANGLES, vertex_array->get_index_buffer()->get_count(), GL_UNSIGNED_INT, nullptr, count);    
+}

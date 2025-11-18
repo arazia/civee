@@ -8,7 +8,7 @@
 struct Vertex {
     glm::vec3 position;
     glm::vec4 color;
-    // glm::vec2 tex_coord; // (We will add this later for sprites)
+    glm::vec2 tex_coord;
 };
 
 class Mesh {

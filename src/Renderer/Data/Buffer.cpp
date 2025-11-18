@@ -4,6 +4,8 @@
 #include "GL/glew.h"
 #include <memory>
 
+#include <iostream>
+
 static uint32_t shader_datatype_size(uint32_t type) {
   switch (type) {
     case GL_FLOAT: return 4;
@@ -20,18 +22,18 @@ BufferLayout::BufferLayout(const std::initializer_list<BufferElement>& elements)
 
 void BufferLayout::calculate_offsets_and_stride() {
   size_t offset = 0;
-  for (auto &el : _elements) {
-    el.Offset = offset;
-    offset += el.Size;
-    _stride += el.Size;
+  for (auto &element : _elements) {
+    element.Offset = offset;
+    offset += element.Size;
+    _stride += element.Size;
   }
 }
 
 
-std::shared_ptr<VertexBuffer> VertexBuffer::create(float *vertices, uint32_t size) {
+std::shared_ptr<VertexBuffer> VertexBuffer::create(float *vertices, uint32_t size, BufferUsage usage) {
   switch (RendererAPI::get_API()) {
     case RendererAPI::API::None: return nullptr;
-    case RendererAPI::API::OpenGL: return std::make_shared<OpenGLVertexBuffer>(vertices, size);
+    case RendererAPI::API::OpenGL: return std::make_shared<OpenGLVertexBuffer>(vertices, size, usage);
     case RendererAPI::API::Vulkan: return nullptr;
     default: return nullptr;
   }

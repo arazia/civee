@@ -24,6 +24,10 @@ public:
         _renderer_api->set_viewport(x, y, width, height);
     }
 
+    static void draw_indexed_instanced(const std::shared_ptr<VertexArray> &vertex_array, uint32_t count) {
+        _renderer_api->draw_indexed_instanced(vertex_array, count);
+    }
+
 private:
     static std::unique_ptr<RendererAPI> _renderer_api;
 };

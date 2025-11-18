@@ -10,7 +10,8 @@ Mesh::Mesh(const std::vector<Vertex>& vertices, const std::vector<uint32_t>& ind
 
   BufferLayout layout = {
         { ShaderDataType::Float3, "a_Position" },
-        { ShaderDataType::Float4, "a_Color" }
+        { ShaderDataType::Float4, "a_Color" },
+        { ShaderDataType::Float2, "a_TexCoord"}
   };
 
   vertex_buffer->set_layout(layout);

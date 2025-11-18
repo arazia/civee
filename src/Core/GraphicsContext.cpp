@@ -10,18 +10,18 @@ GraphicsContext::~GraphicsContext() {
     SDL_GL_DeleteContext(_context);
 }
 
-void GraphicsContext::init() {
+bool GraphicsContext::init() {
     _context = SDL_GL_CreateContext(_window_handle);
 
     if (SDL_GL_MakeCurrent(_window_handle, _context) != 0) {
         std::cerr << "SDL Error: Could not make context current!\n" << SDL_GetError() << std::endl;
-        return;
+        return false;
     }
     
     // Initialize GLEW (The OpenGL Loader)
     if (!gladLoadGLLoader((GLADloadproc) SDL_GL_GetProcAddress)) {
         std::cerr << "Failed to initialize glad!" << std::endl;
-        return;
+        return false;
     }
 
 
@@ -29,6 +29,8 @@ void GraphicsContext::init() {
     std::cout << "  Vendor: " << glGetString(GL_VENDOR) << std::endl;
     std::cout << "  Renderer: " << glGetString(GL_RENDERER) << std::endl;
     std::cout << "  Version: " << glGetString(GL_VERSION) << std::endl;
+
+    return true;
 }
 
 void GraphicsContext::swap_buffers() {
