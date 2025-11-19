@@ -4,6 +4,9 @@
 #include "Renderer/Scene/GameObject.h"
 #include "Renderer/Camera/OrthographicCamera.h"
 #include "Renderer/Data/Shader.h"
+
+#include "Physics/Physics.h"
+
 #include <vector>
 #include <memory>
 
@@ -19,6 +22,8 @@ public:
   void optimise();
 
   void render(std::shared_ptr<OrthographicCamera> camera, std::shared_ptr<Shader> shader);
+
+  RaycastHit cast_ray(const glm::vec3& origin, const glm::vec3& direction);
 
   
 private:
