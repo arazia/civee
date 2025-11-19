@@ -8,9 +8,11 @@
 
 #include "Utils/MeshUtils.h"
 #include "Utils/HexUtils.h"
+#include "Utils/MathUtils.h"
 
 #include "backends/imgui_impl_sdl2.h"
 #include "backends/imgui_impl_opengl3.h"
+#include <cmath>
 #include <glm/ext/matrix_transform.hpp>
 #include <iostream>
 #include <memory>
@@ -131,6 +133,7 @@ bool Engine::init() {
 }
 
 void Engine::process_input() {
+  
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
     ImGui_ImplSDL2_ProcessEvent(&event);
@@ -150,6 +153,56 @@ void Engine::process_input() {
 }
 
 void Engine::update() {
+
+  //  Interaction System
+  int mouse_x, mouse_y;
+  SDL_GetMouseState(&mouse_x, &mouse_y);
+
+  int win_w, win_h;
+  SDL_GetWindowSize(_window, &win_w, &win_h);
+
+  float ndc_x = (2.0f * mouse_x) / win_w - 1.0f;
+  float ndc_y = 1.0f - (2.0f * mouse_y) / win_h;
+  Ray ray;
+  _camera_controller->get_camera()->calculate_ray(ndc_x, ndc_y, ray.origin, ray.direction);
+
+  std::shared_ptr<GameObject> hovered_unit = nullptr;
+  float closest_unit_dist = std::numeric_limits<float>::max();
+
+  for (const auto &obj : _scene->get_objects()) {
+    glm::vec3 half_size = obj->scale * 0.5f;
+    glm::vec3 boxMin = obj->position - half_size;
+    glm::vec3 boxMax = obj->position + half_size;
+
+    float t;
+    if (MathUtils::ray_aabb_intersect(ray, boxMin, boxMax, t)) {
+      if (t < closest_unit_dist) {
+        closest_unit_dist = t;
+        hovered_unit = obj;
+      }
+    }
+  }
+
+  Hex hovered_hex(0,0);
+  bool hit_ground = false;
+  float ground_dist = 0.0f;
+
+  if (MathUtils::ray_plane_intersect(ray, 0.0f, ground_dist)) {
+    glm::vec3 hit_point = ray.origin + ray.direction * ground_dist;
+    hovered_hex = HexUtils::world_to_hex(hit_point, 1.1f);
+    hit_ground = true;
+  }
+
+  if (hovered_unit) {
+    std::cout << "Hovering Unit!" << std::endl;
+  } else if (hit_ground) {
+    std::cout << "Hovering Tile: " << hovered_hex.q << ", " << hovered_hex.r << std::endl;
+  }
+
+    
+
+
+  // ImGui Rendering
   Uint64 curr_frame_time = SDL_GetPerformanceCounter();
   _delta_time = (float)(curr_frame_time - _last_frame_time) / (float) SDL_GetPerformanceFrequency();
   _last_frame_time = curr_frame_time;

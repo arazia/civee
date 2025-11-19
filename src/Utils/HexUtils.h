@@ -27,6 +27,14 @@ public:
     return { x, 0.0f, z};
   }
 
+  static Hex world_to_hex(glm::vec3 &pos, float size) {
+    float q = (2.0f / 3.0f * pos.x) / size;
+    float r = ((-1.0f / 3.0f) * pos.x + (std::sqrt(3.0f) / 3.0f) * pos.z) / size;
+    float s = -q - r;
+
+    return hex_round(q, r, s);
+  }
+
   static std::vector<Hex> generate_rectangle_map(int width, int height) {
     std::vector<Hex> map;
     for (int q = 0; q < width; q++) {
@@ -38,5 +46,26 @@ public:
     }
     return map;
   }
+private:
+  static Hex hex_round(float fq, float fr, float fs) {
+        int q = std::round(fq);
+        int r = std::round(fr);
+        int s = std::round(fs);
+
+        float q_diff = std::abs(q - fq);
+        float r_diff = std::abs(r - fr);
+        float s_diff = std::abs(s - fs);
+
+        // reset the component with the largest change to satisfy q+r+s=0
+        if (q_diff > r_diff && q_diff > s_diff) {
+            q = -r - s;
+        } else if (r_diff > s_diff) {
+            r = -q - s;
+        } else {
+            s = -q - r;
+        }
+
+        return Hex(q, r);
+    }
 };
 

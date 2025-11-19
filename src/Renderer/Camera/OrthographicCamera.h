@@ -16,6 +16,8 @@ public:
     const glm::mat4& get_projection_matrix() const { return _projection_matrix; }
     const glm::mat4& get_view_matrix() const { return _view_matrix; }
 
+    void calculate_ray(float ndc_x, float ndc_y, glm::vec3 &out_origin, glm::vec3 &out_direction);
+
 private:
     void recalculate_view_matrix();
 

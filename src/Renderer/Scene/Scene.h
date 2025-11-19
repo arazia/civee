@@ -13,7 +13,7 @@ public:
   ~Scene();
 
   void add_game_object(const std::shared_ptr<GameObject>& object);
-
+  const std::vector<std::shared_ptr<GameObject>> &get_objects() const { return _game_objects; }
   // void setup_instancing(const std::vector<glm::mat4>& initial_transforms, std::shared_ptr<VertexArray> mesh_vao);
 
   void optimise();

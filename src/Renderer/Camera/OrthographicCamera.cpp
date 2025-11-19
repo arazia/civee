@@ -74,3 +74,17 @@ void OrthographicCamera::recalculate_view_matrix() {
 
   _view_projection_matrix = fin_projection * _view_matrix;
 }
+
+void OrthographicCamera::calculate_ray(float ndc_x, float ndc_y, glm::vec3 &out_origin, glm::vec3 &out_direction) {
+  glm::mat4 inv_proj = glm::inverse(_projection_matrix);
+  glm::mat4 inv_view = glm::inverse(_view_matrix);
+
+  glm::vec4 ray_start_eye = inv_proj * glm::vec4(ndc_x, ndc_y, -1.0f, 1.0f);
+  glm::vec4 ray_end_eye = inv_proj * glm::vec4(ndc_x, ndc_y,  1.0f, 1.0f);
+
+  glm::vec4 ray_start_world = inv_view * ray_start_eye;
+  glm::vec4 ray_end_world = inv_view * ray_end_eye;
+
+  out_origin = glm::vec3(ray_start_world);
+  out_direction = glm::normalize(glm::vec3(ray_end_world) - glm::vec3(ray_start_world));
+}
