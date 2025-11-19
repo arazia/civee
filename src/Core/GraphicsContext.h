@@ -6,7 +6,7 @@ public:
     GraphicsContext(SDL_Window *window);
     ~GraphicsContext();
 
-    void init();
+    bool init();
     void swap_buffers();
     void set_VSync(bool enabled);
 
