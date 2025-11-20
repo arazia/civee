@@ -35,8 +35,8 @@ set(IMGUI_SOURCES
 
 # Define Executable
 add_library(civeeCore SHARED
-    src/Core/Engine.cpp
-    src/Core/GraphicsContext.cpp
+    src/Core/Application.cpp
+    # src/Core/GraphicsContext.cpp
 
     src/Renderer/Renderer.cpp
     src/Renderer/RendererAPI.cpp
@@ -55,6 +55,7 @@ add_library(civeeCore SHARED
     src/Platform/OpenGL/OpenGLTexture.cpp
     src/Platform/OpenGL/OpenGLRendererAPI.cpp
     src/Platform/OpenGL/OpenGLVertexArray.cpp
+    src/Platform/OpenGL/OpenGLContext.cpp
 
     ${IMGUI_SOURCES}
 )

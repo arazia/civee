@@ -5,13 +5,16 @@ Planned to have a 2.5D effect, where we render a 3D world but utilise 2D sprite 
 Currently Done:
 - Rudimentary Engine
 - VBO Pipeline
+- Raycasting for Mouse 
 
 TODO NOW:
+- RAW POINTERS WEEE WOOO WEE WOO
 - Fix instanced rendering
   - draw_queue vs current impl
 - need to allow objects to be created manually for future editor
 - check instanced rendering is actually working -> fps dropped drastically?
 - separate GraphicsContext from OpenGL
+- Add a y-level for raycasting mouse (currently only reads hex)
 
 Required:
 - Material system

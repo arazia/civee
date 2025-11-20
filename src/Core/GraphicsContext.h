@@ -3,14 +3,9 @@
 
 class GraphicsContext {
 public:
-    GraphicsContext(SDL_Window *window);
-    ~GraphicsContext();
+    ~GraphicsContext() = default;
 
-    bool init();
-    void swap_buffers();
-    void set_VSync(bool enabled);
-
-private:
-    SDL_Window *_window_handle;
-    SDL_GLContext _context;
+    virtual bool init() = 0;
+    virtual void swap_buffers() = 0;
+    virtual void set_vsync(bool enabled) = 0;
 };

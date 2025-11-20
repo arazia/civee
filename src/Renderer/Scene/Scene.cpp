@@ -1,6 +1,7 @@
 #include "Renderer/Scene/Scene.h"
-#include "Renderer/RenderCommand.h"
 #include "Renderer/Renderer.h"
+
+#include "Utils/MathUtils.h"
 
 Scene::Scene() {
 }
@@ -39,4 +40,31 @@ void Scene::render(std::shared_ptr<OrthographicCamera> camera, std::shared_ptr<S
   }
 
   Renderer::end_scene();
+}
+
+RaycastHit Scene::cast_ray(const glm::vec3& origin, const glm::vec3& direction) {
+  RaycastHit result;
+  result.hit = false;
+  result.distance = std::numeric_limits<float>::max();
+  result.object = nullptr;
+
+  // copied closest-hit algo
+  for (const auto& obj : _game_objects) {
+    glm::vec3 half_size = obj->scale * 0.5f;
+    glm::vec3 boxMin = obj->position - half_size;
+    glm::vec3 boxMax = obj->position + half_size;
+
+    float t;
+    Ray ray = { origin, direction };
+  
+    if (MathUtils::ray_aabb_intersect(ray, boxMin, boxMax, t)) {
+      if (t < result.distance) {
+        result.hit = true;
+        result.distance = t;
+        result.object = obj;
+      }
+    }
+  }
+
+  return result;
 }
