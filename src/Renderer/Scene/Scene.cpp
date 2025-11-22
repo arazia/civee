@@ -3,66 +3,64 @@
 
 #include "Utils/MathUtils.h"
 
-Scene::Scene() {
-}
+Scene::Scene() {}
 
 Scene::~Scene() {}
 
-void Scene::add_game_object(const std::shared_ptr<GameObject>& object) {
+void Scene::add_game_object(const std::shared_ptr<GameObject> &object) {
   _game_objects.push_back(object);
 }
 
 void Scene::optimise() {
   // Find all objects that should be static
-  // In a real engine, you might filter by a tag or component (e.g. if (obj->is_static))
-  // For now, we assume EVERYTHING currently in the scene is part of the static map.
+  // In a real engine, you might filter by a tag or component (e.g. if
+  // (obj->is_static)) For now, we assume EVERYTHING currently in the scene is
+  // part of the static map.
 
   std::map<std::shared_ptr<Mesh>, std::vector<glm::mat4>> static_groups;
 
-  for (auto& obj : _game_objects) {
+  for (auto &obj : _game_objects) {
     static_groups[obj->mesh].push_back(obj->get_transform());
   }
 
-  for (auto& [mesh, transforms] : static_groups) {
+  for (auto &[mesh, transforms] : static_groups) {
     Renderer::bake_static_mesh(mesh, transforms);
   }
 
   // Clear them from the dynamic list so we don't draw them twice
-  // (In a real engine, you would move them to a separate "Static" list or just flag them)
+  // (In a real engine, you would move them to a separate "Static" list or just
+  // flag them)
   _game_objects.clear();
 }
 
-void Scene::render(std::shared_ptr<OrthographicCamera> camera, std::shared_ptr<Shader> shader) {
+void Scene::render(std::shared_ptr<OrthographicCamera> camera,
+                   std::shared_ptr<Shader> shader) {
   Renderer::begin_scene(camera, shader);
 
-  for (auto& obj : _game_objects) {
+  for (auto &obj : _game_objects) {
     Renderer::submit(obj->mesh, obj->get_transform());
   }
 
   Renderer::end_scene();
 }
 
-RaycastHit Scene::cast_ray(const glm::vec3& origin, const glm::vec3& direction) {
+RaycastHit Scene::cast_ray(const glm::vec3 &origin,
+                           const glm::vec3 &direction) {
   RaycastHit result;
   result.hit = false;
   result.distance = std::numeric_limits<float>::max();
   result.object = nullptr;
 
   // copied closest-hit algo
-  for (const auto& obj : _game_objects) {
-    glm::vec3 half_size = obj->scale * 0.5f;
-    glm::vec3 boxMin = obj->position - half_size;
-    glm::vec3 boxMax = obj->position + half_size;
+  for (const auto &obj : _game_objects) {
+    AABB box = obj->get_world_aabb();
 
     float t;
-    Ray ray = { origin, direction };
-  
-    if (MathUtils::ray_aabb_intersect(ray, boxMin, boxMax, t)) {
-      if (t < result.distance) {
-        result.hit = true;
-        result.distance = t;
-        result.object = obj;
-      }
+    Ray ray = {origin, direction};
+    if (MathUtils::ray_aabb_intersect(ray, box.min, box.max, t)) {
+      result.hit = true;
+      result.distance = t;
+      result.object = obj;
     }
   }
 

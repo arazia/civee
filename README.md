@@ -8,7 +8,8 @@ Currently Done:
 - Raycasting for Mouse 
 
 TODO NOW:
-- RAW POINTERS WEEE WOOO WEE WOO
+- Make sure we UNBIND FROM OUR VAOs PLEASE
+- RAW POINTERS WEEE WOOO WEE WOO in Application
 - Fix instanced rendering
   - draw_queue vs current impl
 - need to allow objects to be created manually for future editor

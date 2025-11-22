@@ -1,25 +1,59 @@
 #pragma once
 
-#include <glm/glm.hpp>
-#include <vector>
-#include <memory>
+#include "Renderer/Data/Texture.h"
 #include "Renderer/Data/VertexArray.h"
+#include "Utils/MathUtils.h"
+#include <glm/glm.hpp>
+#include <memory>
+#include <vector>
 
 struct Vertex {
-    glm::vec3 position;
-    glm::vec4 color;
-    glm::vec2 tex_coord;
+  glm::vec3 position;
+  glm::vec4 color;
+  glm::vec2 tex_coord;
 };
 
 class Mesh {
 public:
-    Mesh(const std::vector<Vertex>& vertices, const std::vector<uint32_t>& indices);
-    virtual ~Mesh() = default;
+  Mesh(const std::vector<Vertex> &vertices,
+       const std::vector<uint32_t> &indices);
+  virtual ~Mesh() = default;
 
-    void bind() const;
-    void unbind() const;
+  void bind() const;
+  void unbind() const;
 
-    const std::shared_ptr<VertexArray>& get_vertex_array() const { return _vertex_array; }
+  const std::shared_ptr<VertexArray> &get_vertex_array() const {
+    return _vertex_array;
+  }
+
+  void set_texture(const std::shared_ptr<Texture> &texture) {
+    _texture = texture;
+  }
+
+  const AABB &get_local_aabb() const { return _aabb; }
+
+  void set_depth_bias(float bias) { _depth_bias = bias; }
+  float get_depth_bias() const { return _depth_bias; }
+
+  const std::shared_ptr<Texture> &get_texture() const { return _texture; }
+
 private:
-    std::shared_ptr<VertexArray> _vertex_array;
+  void calculate_aabb(const std::vector<Vertex> &vertices) {
+
+    glm::vec3 min(std::numeric_limits<float>::max());
+    glm::vec3 max(std::numeric_limits<float>::lowest());
+
+    for (const auto &v : vertices) {
+      min = glm::min(min, v.position);
+      max = glm::max(max, v.position);
+    }
+
+    _aabb = {min, max};
+  }
+
+  std::shared_ptr<VertexArray> _vertex_array;
+  std::shared_ptr<Texture> _texture;
+
+  AABB _aabb;
+  float _depth_bias = 0.0f;
 };

@@ -3,11 +3,14 @@
 #include "Core/Layer.h"
 #include "Renderer/Camera/OrthographicCameraController.h"
 #include "Renderer/Data/Texture.h"
+#include "Renderer/Renderer.h"
 #include "Renderer/Scene/Scene.h"
 #include "Utils/HexUtils.h"
 #include "Utils/MathUtils.h"
 #include "Utils/MeshUtils.h"
 #include "imgui.h"
+
+#include <glad/glad.h>
 
 #include <iostream>
 
@@ -16,33 +19,34 @@ public:
   CivLayer() : Layer("CivLayer") {}
 
   virtual void on_attach() override {
-    // 1. Setup Camera
     _camera_controller =
-        std::make_shared<OrthographicCameraController>(1280.0f / 720.0f);
+        std::make_shared<OrthographicCameraController>(1280.0f / 720.0f, 10);
 
-    // 2. Setup Rendering Resources
     _shader = Shader::create("assets/shaders/Basic.vert",
                              "assets/shaders/Basic.frag");
-    _texture = Texture::create("assets/textures/grass.jpg");
+    _grass_texture = Texture::create("assets/textures/grass.jpg");
+    _player_texture = Texture::create("assets/textures/player.png");
     _scene = std::make_shared<Scene>();
 
-    // 3. Setup Map
     auto hex_mesh = MeshUtils::create_hexagon();
-    auto map = HexUtils::generate_rectangle_map(10, 10);
+    hex_mesh->set_texture(_grass_texture);
+    auto map = HexUtils::generate_rectangle_map(50, 50);
 
     for (const auto &hex : map) {
       auto tile = std::make_shared<GameObject>(hex_mesh);
       tile->position = HexUtils::hex_to_world(hex, 1.1f);
-      _scene->add_game_object(tile); // Static
+      _scene->add_game_object(tile);
     }
 
-    _scene->optimise(); // Bake map
+    _scene->optimise();
 
-    // 4. Setup Player
-    auto quad_mesh = MeshUtils::create_quad();
-    auto player = std::make_shared<GameObject>(quad_mesh);
-    player->position = {0.0f, 1.0f, 0.0f};
-    _scene->add_game_object(player); // Dynamic
+    auto player_mesh = MeshUtils::create_box(0.5f, 1.5f, 0.5f);
+    player_mesh->set_depth_bias(0.1f);
+    player_mesh->set_texture(_player_texture);
+    auto player = std::make_shared<GameObject>(player_mesh);
+    player->position = {0.0f, 0.0f, 0.0f};
+
+    _scene->add_game_object(player);
   }
 
   virtual void on_update(float dt) override {
@@ -64,13 +68,10 @@ public:
     }
 
     else {
-      // We hit nothing, check the ground/grid
       float t;
-      // Ray vs Plane (Y=0)
       if (MathUtils::ray_plane_intersect({ray_origin, ray_dir}, 0.0f, t)) {
         glm::vec3 hit_point = ray_origin + ray_dir * t;
 
-        // Convert to Hex
         Hex hex = HexUtils::world_to_hex(hit_point, 1.1f); // Use your hex size
         std::cout << "Hovered Hex: " << hex.q << ", " << hex.r << std::endl;
       }
@@ -78,12 +79,40 @@ public:
 
     _camera_controller->on_update(dt);
 
-    if (_texture)
-      _texture->bind(0);
-    _shader->bind();
-    _shader->set_uniform_int("u_Texture", 0);
-
+    // _shader->bind();
+    // _shader->set_uniform_int("u_Texture", 0);
+    //
     _scene->render(_camera_controller->get_camera(), _shader);
+
+    if (_show_debug_bounds) {
+      // 2. Start a new batching scene
+      glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+      Renderer::begin_scene(_camera_controller->get_camera(), _shader);
+
+      for (const auto &obj : _scene->get_objects()) {
+        // Calculate the AABB for this object
+        AABB box = obj->get_world_aabb();
+        glm::vec3 center = box.get_center();
+        glm::vec3 size = box.get_size();
+
+        // Create a transform that scales the Unit Cube to the size of the AABB
+        // std::cout << center.x << " " << center.y << " " << center.z
+        // << std::endl;
+        glm::mat4 transform = glm::translate(glm::mat4(1.0f), center);
+        transform = glm::scale(transform, size);
+
+        // 3. Submit to the Instanced Queue!
+        // Even though it's 1 box per object, the Renderer handles it
+        // as a batch of 1 (or batches multiple identical boxes together).
+        std::shared_ptr<Mesh> debug_box_mesh =
+            MeshUtils::create_cube_wireframe();
+        Renderer::submit(debug_box_mesh, transform);
+      }
+
+      // 4. Flush/Draw the debug batches
+      Renderer::end_scene();
+      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
   }
 
   virtual void on_event(SDL_Event &event) override {
@@ -97,14 +126,21 @@ public:
   }
 
   virtual void on_imgui_render() override {
+    auto pos = _camera_controller->get_camera()->get_position();
     ImGui::Begin("Game Info");
     ImGui::Text("Civ Layer Running");
+    ImGui::Checkbox("Show AABB Debug", &_show_debug_bounds);
+    ImGui::Text("x: %.2f, y:%.2f, z:%.2f", pos.x, pos.y, pos.z);
     ImGui::End();
   }
 
 private:
   std::shared_ptr<Scene> _scene;
   std::shared_ptr<Shader> _shader;
-  std::shared_ptr<Texture> _texture;
   std::shared_ptr<OrthographicCameraController> _camera_controller;
+
+  // TODO change later
+  bool _show_debug_bounds = false;
+  std::shared_ptr<Texture> _grass_texture;
+  std::shared_ptr<Texture> _player_texture;
 };

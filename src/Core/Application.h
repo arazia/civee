@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Core/Config.h"
-#include "Core/Layer.h"
 #include "Core/GraphicsContext.h"
+#include "Core/Layer.h"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_stdinc.h>
@@ -25,9 +25,9 @@ public:
   void shutdown();
 
   void push_layer(Layer *layer);
-  
+
   SDL_Window *get_window() const { return _window; }
-  
+
 private:
   // singleton
   static Application *_instance;
@@ -41,7 +41,7 @@ private:
   SDL_Window *_window = nullptr;
   std::unique_ptr<GraphicsContext> _context;
 
-  std::vector<Layer*> _layer_stack;
+  std::vector<Layer *> _layer_stack;
 
   // std::shared_ptr<Scene> _scene;
   // std::shared_ptr<Shader> _shader;

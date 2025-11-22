@@ -56,6 +56,7 @@ add_library(civeeCore SHARED
     src/Platform/OpenGL/OpenGLRendererAPI.cpp
     src/Platform/OpenGL/OpenGLVertexArray.cpp
     src/Platform/OpenGL/OpenGLContext.cpp
+    src/Platform/OpenGL/OpenGLFramebuffer.cpp
 
     ${IMGUI_SOURCES}
 )
