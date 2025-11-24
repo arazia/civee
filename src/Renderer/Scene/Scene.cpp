@@ -17,14 +17,17 @@ void Scene::optimise() {
   // (obj->is_static)) For now, we assume EVERYTHING currently in the scene is
   // part of the static map.
 
-  std::map<std::shared_ptr<Mesh>, std::vector<glm::mat4>> static_groups;
+  std::map<Renderer::RenderKey, std::vector<glm::mat4>> static_groups;
 
   for (auto &obj : _game_objects) {
-    static_groups[obj->mesh].push_back(obj->get_transform());
+    if (obj->mesh) {
+      Renderer::RenderKey key = {obj->mesh, obj->texture};
+      static_groups[key].push_back(obj->get_transform());
+    }
   }
 
-  for (auto &[mesh, transforms] : static_groups) {
-    Renderer::bake_static_mesh(mesh, transforms);
+  for (auto &[key, transforms] : static_groups) {
+    Renderer::bake_static_mesh(key.mesh, key.texture, transforms);
   }
 
   // Clear them from the dynamic list so we don't draw them twice
@@ -38,7 +41,7 @@ void Scene::render(std::shared_ptr<OrthographicCamera> camera,
   Renderer::begin_scene(camera, shader);
 
   for (auto &obj : _game_objects) {
-    Renderer::submit(obj->mesh, obj->get_transform());
+    Renderer::submit(obj->mesh, obj->texture, obj->get_transform());
   }
 
   Renderer::end_scene();

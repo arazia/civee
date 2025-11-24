@@ -8,11 +8,15 @@ class GameObject {
 public:
   // TODO encapsulate this maybe?
   std::shared_ptr<Mesh> mesh;
+  std::shared_ptr<Texture> texture;
+
   glm::vec3 position = {0.0f, 0.0f, 0.0f};
   glm::vec3 rotation = {0.0f, 0.0f, 0.0f};
   glm::vec3 scale = {1.0f, 1.0f, 1.0f};
 
   GameObject(const std::shared_ptr<Mesh> &mesh) : mesh(mesh) {}
+
+  void set_texture(const std::shared_ptr<Texture> &tex) { texture = tex; }
 
   glm::mat4 get_transform() const {
     glm::mat4 mat_s = glm::scale(glm::mat4(1.0f), scale);

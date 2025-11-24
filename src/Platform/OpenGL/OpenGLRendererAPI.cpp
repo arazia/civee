@@ -45,3 +45,31 @@ void OpenGLRendererAPI::draw_indexed_instanced(
 
   vertex_array->unbind();
 }
+
+static GLenum polygon_mode_to_gl(RendererAPI::PolygonMode mode) {
+  switch (mode) {
+  case RendererAPI::PolygonMode::Fill:
+    return GL_FILL;
+  case RendererAPI::PolygonMode::Line:
+    return GL_LINE;
+  case RendererAPI::PolygonMode::Point:
+    return GL_POINT;
+  }
+  return GL_FILL;
+}
+
+static GLenum face_to_gl(RendererAPI::Face face) {
+  switch (face) {
+  case RendererAPI::Face::Front:
+    return GL_FRONT;
+  case RendererAPI::Face::Back:
+    return GL_BACK;
+  case RendererAPI::Face::FrontAndBack:
+    return GL_FRONT_AND_BACK;
+  }
+  return GL_FRONT_AND_BACK;
+}
+
+void OpenGLRendererAPI::set_polygon_mode(Face face, PolygonMode mode) {
+  glPolygonMode(face_to_gl(face), polygon_mode_to_gl(mode));
+}

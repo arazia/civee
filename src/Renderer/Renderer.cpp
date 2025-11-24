@@ -1,8 +1,7 @@
 #include "Renderer.h"
 #include "Renderer/RenderCommand.h"
 
-std::map<std::shared_ptr<Mesh>, std::vector<glm::mat4>>
-    Renderer::_dynamic_queue;
+std::map<Renderer::RenderKey, std::vector<glm::mat4>> Renderer::_dynamic_queue;
 std::shared_ptr<VertexBuffer> Renderer::_dynamic_vbo;
 std::vector<Renderer::BatchData> Renderer::_static_batches;
 std::shared_ptr<Shader> Renderer::_current_shader;
@@ -30,17 +29,21 @@ void Renderer::begin_scene(const std::shared_ptr<OrthographicCamera> &camera,
 }
 
 void Renderer::submit(const std::shared_ptr<Mesh> &mesh,
+                      const std::shared_ptr<Texture> &texture,
                       const glm::mat4 &transform) {
-  _dynamic_queue[mesh].push_back(transform);
+  RenderKey key = {mesh, texture};
+  _dynamic_queue[key].push_back(transform);
 }
 
 void Renderer::bake_static_mesh(const std::shared_ptr<Mesh> &mesh,
+                                const std::shared_ptr<Texture> &texture,
                                 const std::vector<glm::mat4> &transforms) {
   if (transforms.empty())
     return;
 
   BatchData batch;
-  batch.texture = mesh->get_texture();
+  // batch.texture = mesh->get_texture();
+  batch.texture = texture;
   batch.count = (uint32_t)transforms.size();
   batch.vao = mesh->get_vertex_array();
 
@@ -68,25 +71,29 @@ void Renderer::end_scene() {
     // TODO HARDCODED MAYBE CHANGE LATER
     _current_shader->set_uniform_float("u_DepthBias", 0);
     RenderCommand::draw_indexed_instanced(batch.vao, batch.count);
+
+    batch.vao->unbind();
   }
 
-  for (auto &[mesh, transforms] : _dynamic_queue) {
+  for (auto &[key, transforms] : _dynamic_queue) {
     if (transforms.empty())
       continue;
 
-    if (mesh->get_texture()) {
-      mesh->get_texture()->bind(0);
-    }
+    if (key.texture)
+      key.texture->bind(0);
 
     _dynamic_vbo->set_data(transforms.data(),
                            transforms.size() * sizeof(glm::mat4));
 
-    mesh->bind();
-    mesh->get_vertex_array()->set_instance_buffer(_dynamic_vbo);
+    key.mesh->bind();
+    key.mesh->get_vertex_array()->set_instance_buffer(_dynamic_vbo);
 
-    _current_shader->set_uniform_float("u_DepthBias", mesh->get_depth_bias());
-    RenderCommand::draw_indexed_instanced(mesh->get_vertex_array(),
+    // _current_shader->set_uniform_float("u_DepthBias",
+    // mesh->get_depth_bias());
+    RenderCommand::draw_indexed_instanced(key.mesh->get_vertex_array(),
                                           (uint32_t)transforms.size());
+
+    key.mesh->unbind();
   }
 
   _dynamic_queue.clear();

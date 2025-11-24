@@ -10,6 +10,17 @@
 
 class Renderer {
 public:
+  struct RenderKey {
+    std::shared_ptr<Mesh> mesh;
+    std::shared_ptr<Texture> texture;
+
+    bool operator<(const RenderKey &other) const {
+      if (mesh != other.mesh)
+        return mesh < other.mesh;
+      return texture < other.texture;
+    }
+  };
+
   static void init();
   static void shutdown();
 
@@ -19,9 +30,11 @@ public:
 
   // dynamic submission
   static void submit(const std::shared_ptr<Mesh> &mesh,
+                     const std::shared_ptr<Texture> &texture,
                      const glm::mat4 &transform);
 
   static void bake_static_mesh(const std::shared_ptr<Mesh> &mesh,
+                               const std::shared_ptr<Texture> &texture,
                                const std::vector<glm::mat4> &transforms);
 
 private:
@@ -32,7 +45,7 @@ private:
     uint32_t count = 0;
   };
 
-  static std::map<std::shared_ptr<Mesh>, std::vector<glm::mat4>> _dynamic_queue;
+  static std::map<RenderKey, std::vector<glm::mat4>> _dynamic_queue;
   static std::shared_ptr<VertexBuffer> _dynamic_vbo;
 
   static std::vector<BatchData> _static_batches;
