@@ -4,6 +4,7 @@
 #include "Core/Layer.h"
 #include "Editor/ViewportClient.h"
 #include "Renderer/Data/Framebuffer.h"
+#include "Renderer/Data/TextureLibrary.h"
 #include "Renderer/RenderCommand.h"
 #include "Utils/MeshUtils.h"
 #include "imgui.h"
@@ -30,6 +31,7 @@ public:
   virtual void on_imgui_render() override {
     setup_dockspace();
 
+    // Dockspace
     ImGui::Begin("Editor Settings");
     ImGui::Checkbox("Show Colliders", &_show_colliders);
     ImGui::End();
@@ -48,6 +50,7 @@ public:
 
     _framebuffer->unbind();
 
+    // Viewport
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{0, 0});
     ImGui::Begin("Viewport");
 
@@ -58,8 +61,6 @@ public:
       _framebuffer->resize((uint32_t)_viewport_size.x,
                            (uint32_t)_viewport_size.y);
 
-      // We also need to tell the Camera Controller to update its aspect ratio!
-      // (We'll hook this up via an event later)
       _client->on_viewport_resize(_viewport_size.x, _viewport_size.y);
     }
 
@@ -67,16 +68,13 @@ public:
     ImVec2 viewport_max_region = {viewport_min_region.x + _viewport_size.x,
                                   viewport_min_region.y + _viewport_size.y};
 
-    ImVec2 mouse_pos = ImGui::GetMousePos(); // Absolute mouse pos
+    ImVec2 mouse_pos = ImGui::GetMousePos();
 
-    // Check if mouse is inside viewport
     bool is_hovered = ImGui::IsWindowHovered();
 
-    // Calculate relative coordinates
     glm::vec2 relative_mouse = {mouse_pos.x - viewport_min_region.x,
                                 mouse_pos.y - viewport_min_region.y};
 
-    // 3. Pass this to the Client/Game
     if (_client) {
       _client->set_viewport_mouse_pos(relative_mouse.x, relative_mouse.y);
       _client->set_viewport_focused(is_hovered);
@@ -90,6 +88,102 @@ public:
 
     ImGui::End();
     ImGui::PopStyleVar();
+
+    // Scene Hierarchy
+    ImGui::Begin("Scene Hierarchy");
+
+    if (_client) {
+      auto scene = _client->get_active_scene();
+      auto &objects = scene->get_objects();
+
+      for (size_t i = 0; i < objects.size(); i++) {
+        auto &obj = objects[i];
+
+        bool is_selected = (_client->get_selected_object() == obj);
+
+        ImGuiTreeNodeFlags flags =
+            ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth;
+        if (is_selected)
+          flags |= ImGuiTreeNodeFlags_Selected;
+
+        bool opened =
+            ImGui::TreeNodeEx((void *)(uint64_t)i, flags, obj->name.c_str());
+
+        if (ImGui::IsItemClicked()) {
+          _client->set_selected_object(obj);
+        }
+
+        if (opened) {
+          ImGui::TreePop();
+        }
+      }
+    }
+    ImGui::End();
+
+    // Properties
+    ImGui::Begin("Properties");
+    if (_client) {
+      auto selected = _client->get_selected_object();
+      if (selected) {
+        char buffer[256];
+        memset(buffer, 0, sizeof(buffer));
+        strcpy(buffer, selected->name.c_str());
+        if (ImGui::InputText("Name", buffer, sizeof(buffer))) {
+          selected->name = std::string(buffer);
+        }
+
+        // transform
+        if (ImGui::CollapsingHeader("Transform",
+                                    ImGuiTreeNodeFlags_DefaultOpen)) {
+          ImGui::DragFloat3("Position", (float *)&selected->position, 0.1f);
+
+          ImGui::DragFloat3("Rotation", (float *)&selected->rotation, 1.0f);
+
+          ImGui::DragFloat3("Scale", (float *)&selected->scale, 0.1f);
+        }
+
+        // bounding box
+        if (ImGui::CollapsingHeader("Collider",
+                                    ImGuiTreeNodeFlags_DefaultOpen)) {
+          auto &col = selected->collider;
+
+          const char *types[] = {"None", "Box", "Cylinder"};
+          int current_type = (int)col.type;
+          if (ImGui::Combo("Type", &current_type, types, 3)) {
+            col.type = (ColliderType)current_type;
+          }
+
+          if (col.type == ColliderType::Box) {
+            ImGui::DragFloat3("Size", (float *)&col.size, 0.1f);
+            ImGui::DragFloat3("Offset", (float *)&col.offset, 0.1f);
+          } else if (col.type == ColliderType::Cylinder) {
+            ImGui::DragFloat("Radius", &col.radius, 0.05f);
+            ImGui::DragFloat("Height", &col.height, 0.05f);
+            ImGui::DragFloat3("Offset", (float *)&col.offset, 0.1f);
+          }
+        }
+
+        // texture
+        if (ImGui::CollapsingHeader("Material",
+                                    ImGuiTreeNodeFlags_DefaultOpen)) {
+          const char *textures[] = {"Grass", "Water", "Stone"};
+          static int current_item = 0;
+
+          if (ImGui::Combo("Texture", &current_item, textures, 3)) {
+            std::string tex_name = textures[current_item];
+
+            auto new_tex = TextureLibrary::get(tex_name);
+            if (new_tex) {
+              selected->set_texture(new_tex);
+            }
+          }
+        }
+
+        if (_client)
+          _client->get_active_scene()->optimise();
+      }
+    }
+    ImGui::End();
   }
 
   void begin_viewport() { _framebuffer->bind(); }
@@ -136,7 +230,6 @@ private:
     if (opt_fullscreen)
       ImGui::PopStyleVar(2);
 
-    // Submit the DockSpace
     ImGuiIO &io = ImGui::GetIO();
     if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable) {
       ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
@@ -146,7 +239,8 @@ private:
     if (ImGui::BeginMenuBar()) {
       if (ImGui::BeginMenu("File")) {
         if (ImGui::MenuItem("Exit"))
-          Application::get().shutdown(); // Hacky exit
+          // TODO hacky change later
+          Application::get().shutdown();
         ImGui::EndMenu();
       }
       ImGui::EndMenuBar();

@@ -17,6 +17,9 @@ public:
   virtual void set_viewport_mouse_pos(float x, float y) = 0;
   virtual void set_viewport_focused(bool focused) = 0;
 
+  virtual std::shared_ptr<GameObject> get_selected_object() = 0;
+  virtual void set_selected_object(std::shared_ptr<GameObject> obj) = 0;
+
   virtual void on_render_overlays() = 0;
 
   // Optional: Allow Editor to inspect the scene (Hierarchy panel)

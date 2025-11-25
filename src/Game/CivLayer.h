@@ -4,7 +4,6 @@
 #include "Editor/ViewportClient.h"
 
 #include "Renderer/Camera/OrthographicCameraController.h"
-#include "Renderer/Data/Texture.h"
 #include "Renderer/Data/TextureLibrary.h"
 #include "Renderer/RenderCommand.h"
 #include "Renderer/Renderer.h"
@@ -38,9 +37,13 @@ public:
     auto map = HexUtils::generate_rectangle_map(50, 50);
 
     for (const auto &hex : map) {
-      auto tile = std::make_shared<GameObject>(hex_mesh);
+      auto tile = std::make_shared<GameObject>(hex_mesh, "Hex Tile");
       tile->position = HexUtils::hex_to_world(hex, 1.1f);
+      tile->is_static = true;
       tile->set_texture(TextureLibrary::get("Grass"));
+
+      _tile_lookup[{hex.q, hex.r}] = tile;
+
       _scene->add_game_object(tile);
     }
 
@@ -48,8 +51,14 @@ public:
 
     auto player_mesh = MeshUtils::create_box(0.5f, 1.5f, 0.5f);
     player_mesh->set_depth_bias(0.1f);
-    auto player = std::make_shared<GameObject>(player_mesh);
+    auto player = std::make_shared<GameObject>(player_mesh, "Player");
     player->position = {0.0f, 0.0f, 0.0f};
+
+    player->collider.type = ColliderType::Cylinder;
+    player->collider.radius = 0.4f;
+    player->collider.height = 1.5f;
+    player->collider.offset = {0.0f, 0.0f, 0.0f};
+    player->is_static = false;
     player->set_texture(TextureLibrary::get("Player"));
 
     _scene->add_game_object(player);
@@ -84,8 +93,23 @@ public:
       if (MathUtils::ray_plane_intersect({ray_origin, ray_dir}, 0.0f, t)) {
         glm::vec3 hit_point = ray_origin + ray_dir * t;
 
-        Hex hex = HexUtils::world_to_hex(hit_point, 1.1f); // Use your hex size
-        std::cout << "Hovered Hex: " << hex.q << ", " << hex.r << std::endl;
+        Hex hex = HexUtils::world_to_hex(hit_point, 1.1f);
+
+        std::shared_ptr<GameObject> _hovered_object;
+        auto it = _tile_lookup.find({hex.q, hex.r});
+        if (it != _tile_lookup.end()) {
+          _hovered_object = it->second;
+        } else {
+          _hovered_object = nullptr;
+        }
+
+        if (SDL_GetMouseState(nullptr, nullptr) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
+          if (!ImGui::GetIO().WantCaptureMouse) {
+            _selected_object = _hovered_object;
+          }
+        }
+
+        // std::cout << "Hovered Hex: " << hex.q << ", " << hex.r << std::endl;
       }
     }
 
@@ -136,6 +160,14 @@ public:
     _is_viewport_focused = focused;
   }
 
+  virtual std::shared_ptr<GameObject> get_selected_object() override {
+    return _selected_object;
+  }
+
+  virtual void set_selected_object(std::shared_ptr<GameObject> obj) override {
+    _selected_object = obj;
+  }
+
   virtual void on_render_overlays() override {
     RenderCommand::set_polygon_mode(RendererAPI::Face::FrontAndBack,
                                     RendererAPI::PolygonMode::Line);
@@ -167,9 +199,13 @@ public:
   }
 
 private:
+  std::map<std::pair<int, int>, std::shared_ptr<GameObject>> _tile_lookup;
+
   std::shared_ptr<Scene> _scene;
   std::shared_ptr<Shader> _shader;
   std::shared_ptr<OrthographicCameraController> _camera_controller;
+
+  std::shared_ptr<GameObject> _selected_object;
 
   float _viewport_mx = 0.0f, _viewport_my = 0.0f;
   bool _is_viewport_focused = false;

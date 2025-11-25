@@ -1,6 +1,7 @@
 #include "Renderer/Scene/Scene.h"
 #include "Renderer/Renderer.h"
 
+#include "Renderer/Scene/GameObject.h"
 #include "Utils/MathUtils.h"
 
 Scene::Scene() {}
@@ -12,15 +13,13 @@ void Scene::add_game_object(const std::shared_ptr<GameObject> &object) {
 }
 
 void Scene::optimise() {
-  // Find all objects that should be static
-  // In a real engine, you might filter by a tag or component (e.g. if
-  // (obj->is_static)) For now, we assume EVERYTHING currently in the scene is
-  // part of the static map.
+  // TODO add flag for static for objects
+  Renderer::reset_static_geometry();
 
   std::map<Renderer::RenderKey, std::vector<glm::mat4>> static_groups;
 
   for (auto &obj : _game_objects) {
-    if (obj->mesh) {
+    if (obj->mesh && obj->is_static) {
       Renderer::RenderKey key = {obj->mesh, obj->texture};
       static_groups[key].push_back(obj->get_transform());
     }
@@ -30,10 +29,7 @@ void Scene::optimise() {
     Renderer::bake_static_mesh(key.mesh, key.texture, transforms);
   }
 
-  // Clear them from the dynamic list so we don't draw them twice
-  // (In a real engine, you would move them to a separate "Static" list or just
-  // flag them)
-  _game_objects.clear();
+  // _game_objects.clear();
 }
 
 void Scene::render(std::shared_ptr<OrthographicCamera> camera,
@@ -41,6 +37,12 @@ void Scene::render(std::shared_ptr<OrthographicCamera> camera,
   Renderer::begin_scene(camera, shader);
 
   for (auto &obj : _game_objects) {
+    if (!obj->mesh)
+      continue;
+
+    if (obj->is_static)
+      continue;
+
     Renderer::submit(obj->mesh, obj->texture, obj->get_transform());
   }
 
@@ -54,13 +56,27 @@ RaycastHit Scene::cast_ray(const glm::vec3 &origin,
   result.distance = std::numeric_limits<float>::max();
   result.object = nullptr;
 
-  // copied closest-hit algo
   for (const auto &obj : _game_objects) {
-    AABB box = obj->get_world_aabb();
+    if (obj->collider.type == ColliderType::None)
+      continue;
 
-    float t;
+    float t = -1.0f;
+    bool hit = false;
     Ray ray = {origin, direction};
-    if (MathUtils::ray_aabb_intersect(ray, box.min, box.max, t)) {
+
+    switch (obj->collider.type) {
+    case ColliderType::Cylinder: {
+      hit = MathUtils::ray_cylinder_intersect(
+          ray, obj->position + obj->collider.offset, obj->collider.radius,
+          obj->collider.height, t);
+    }
+    case ColliderType::Box: {
+      AABB box = obj->get_world_aabb();
+      hit = MathUtils::ray_aabb_intersect(ray, box.min, box.max, t);
+    }
+    };
+
+    if (hit && t < result.distance) {
       result.hit = true;
       result.distance = t;
       result.object = obj;

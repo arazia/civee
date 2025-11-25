@@ -37,6 +37,8 @@ public:
                                const std::shared_ptr<Texture> &texture,
                                const std::vector<glm::mat4> &transforms);
 
+  static void reset_static_geometry();
+
 private:
   struct BatchData {
     std::shared_ptr<VertexArray> vao;

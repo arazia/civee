@@ -98,3 +98,5 @@ void Renderer::end_scene() {
 
   _dynamic_queue.clear();
 }
+
+void Renderer::reset_static_geometry() { _static_batches.clear(); }
