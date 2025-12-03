@@ -28,6 +28,7 @@ public:
     _shader = Shader::create("assets/shaders/Basic.vert",
                              "assets/shaders/Basic.frag");
 
+    TextureLibrary::init();
     TextureLibrary::load("Grass", "assets/textures/grass.jpg");
     TextureLibrary::load("Player", "assets/textures/player.png");
 
@@ -172,7 +173,8 @@ public:
     RenderCommand::set_polygon_mode(RendererAPI::Face::FrontAndBack,
                                     RendererAPI::PolygonMode::Line);
 
-    Renderer::begin_scene(_camera_controller->get_camera(), _shader);
+    Renderer::begin_scene(_camera_controller->get_camera(), _shader,
+                          _scene->get_light_environment());
 
     static auto debug_mesh = MeshUtils::create_cube_wireframe();
     for (const auto &obj : _scene->get_objects()) {

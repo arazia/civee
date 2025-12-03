@@ -7,6 +7,8 @@
 
 class TextureLibrary {
 public:
+  static void init();
+
   static std::shared_ptr<Texture> load(const std::string &name,
                                        const std::string &filepath);
 
@@ -18,4 +20,6 @@ public:
 
 private:
   static std::unordered_map<std::string, std::shared_ptr<Texture>> _textures;
+
+  static std::shared_ptr<Texture> _default_texture;
 };

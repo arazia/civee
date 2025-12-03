@@ -1,5 +1,8 @@
 #include "Renderer.h"
 #include "Renderer/RenderCommand.h"
+#include "Renderer/Scene/LightEnvironment.h"
+
+#include <iostream>
 
 std::map<Renderer::RenderKey, std::vector<glm::mat4>> Renderer::_dynamic_queue;
 std::shared_ptr<VertexBuffer> Renderer::_dynamic_vbo;
@@ -12,10 +15,19 @@ void Renderer::init() {
   size_t max_dynamic_instances = 1000;
   _dynamic_vbo = VertexBuffer::create(
       nullptr, max_dynamic_instances * sizeof(glm::mat4), BufferUsage::Dynamic);
+
+  if (_dynamic_vbo) {
+    std::cout << "Renderer Init: Dynamic Buffer Created Successfully."
+              << std::endl;
+  } else {
+    std::cerr << "CRITICAL: Dynamic Buffer is NULL! Check RendererAPI::_api."
+              << std::endl;
+  }
 }
 
 void Renderer::begin_scene(const std::shared_ptr<OrthographicCamera> &camera,
-                           const std::shared_ptr<Shader> &shader) {
+                           const std::shared_ptr<Shader> &shader,
+                           const LightEnvironment &lights) {
 
   RenderCommand::set_clear_color({0.1f, 0.1f, 0.1f, 1});
   RenderCommand::clear();
@@ -24,6 +36,8 @@ void Renderer::begin_scene(const std::shared_ptr<OrthographicCamera> &camera,
   _current_shader->bind();
   _current_shader->set_uniform_mat4("u_ViewProjection",
                                     camera->get_view_projection_matrix());
+
+  _current_shader->upload_light_environment(lights);
 
   _dynamic_queue.clear();
 }
@@ -66,13 +80,17 @@ void Renderer::end_scene() {
       batch.texture->bind(0);
     }
     batch.vao->bind();
-    batch.instance_vbo->bind();
+
+    batch.vao->set_instance_buffer(batch.instance_vbo);
+    if (batch.vao->get_index_buffer())
+      batch.vao->get_index_buffer()->bind();
 
     // TODO HARDCODED MAYBE CHANGE LATER
     _current_shader->set_uniform_float("u_DepthBias", 0);
     RenderCommand::draw_indexed_instanced(batch.vao, batch.count);
 
     batch.vao->unbind();
+    batch.texture->unbind();
   }
 
   for (auto &[key, transforms] : _dynamic_queue) {
@@ -94,6 +112,7 @@ void Renderer::end_scene() {
                                           (uint32_t)transforms.size());
 
     key.mesh->unbind();
+    key.texture->unbind();
   }
 
   _dynamic_queue.clear();

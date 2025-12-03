@@ -13,7 +13,7 @@ Application *Application::_instance = nullptr;
 
 Application::Application() {
   _instance = this;
-
+  
   if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) != 0) {
     std::cerr << "SDL Init Error: " << SDL_GetError() << std::endl;
     return;

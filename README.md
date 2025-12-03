@@ -8,14 +8,18 @@ Currently Done:
 - Raycasting for Mouse 
 
 TODO NOW:
+- autotiling + uv tiling
+- Material class
+- change static functions to constructed objects (safer)
 - Make sure we UNBIND FROM OUR VAOs PLEASE
 - RAW POINTERS WEEE WOOO WEE WOO in Application
-- Fix instanced rendering
-  - draw_queue vs current impl
+- Implement tiled/clustered forward rendering
 - need to allow objects to be created manually for future editor
-- check instanced rendering is actually working -> fps dropped drastically?
-- separate GraphicsContext from OpenGL
-- Add a y-level for raycasting mouse (currently only reads hex)
+- physically-based lighting, shadows
+- scene management
+- post-fx pipeline with HDR tonemapping and maybe dof
+- OpenGLShader should cache GLint locations instead of building strings
+- multithreading, raytracing, streaming etc.
 
 Required:
 - Material system

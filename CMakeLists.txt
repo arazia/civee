@@ -38,6 +38,8 @@ add_library(civeeCore SHARED
     src/Core/Application.cpp
     # src/Core/GraphicsContext.cpp
 
+    src/Game/Level.cpp
+
     src/Renderer/Renderer.cpp
     src/Renderer/RendererAPI.cpp
     src/Renderer/RenderCommand.cpp
@@ -45,6 +47,11 @@ add_library(civeeCore SHARED
     src/Renderer/Data/Buffer.cpp
     src/Renderer/Data/VertexArray.cpp
     src/Renderer/Data/Texture.cpp
+    src/Renderer/Data/Framebuffer.cpp
+    src/Renderer/Data/TextureLibrary.cpp
+    src/Renderer/Data/MeshLibrary.cpp
+    src/Renderer/Data/ModelLoader.cpp
+    
     src/Renderer/Scene/Mesh.cpp
     src/Renderer/Scene/Scene.cpp
     src/Renderer/Camera/OrthographicCamera.cpp
@@ -64,6 +71,8 @@ add_library(civeeCore SHARED
 target_include_directories(civeeCore PUBLIC
     include
     src
+    vendor
+    vendor/tinyobjloader
     vendor/glad/include
     vendor/stb_image
     ${SDL2_INCLUDE_DIRS}

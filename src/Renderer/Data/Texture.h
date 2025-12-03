@@ -1,8 +1,8 @@
 #pragma once
 
 #include <cstdint>
-#include <string>
 #include <memory>
+#include <string>
 
 class Texture {
 public:
@@ -13,6 +13,8 @@ public:
 
   virtual int get_width() const = 0;
   virtual int get_height() const = 0;
+
+  virtual bool is_loaded() const = 0;
 
   static std::shared_ptr<Texture> create(const std::string &path);
 };

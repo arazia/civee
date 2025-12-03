@@ -1,8 +1,9 @@
 #pragma once
 
-#include <string>
+#include "Renderer/Scene/LightEnvironment.h"
 #include <glm/glm.hpp>
 #include <memory>
+#include <string>
 
 class Shader {
 public:
@@ -11,11 +12,17 @@ public:
   virtual void bind() const = 0;
   virtual void unbind() const = 0;
 
-  virtual void set_uniform_int(const std::string& name, int value) = 0;
-  virtual void set_uniform_float(const std::string& name, float value) = 0;
-  virtual void set_uniform_float3(const std::string& name, const glm::vec3& value) = 0;
-  virtual void set_uniform_float4(const std::string& name, const glm::vec4& value) = 0;
-  virtual void set_uniform_mat4(const std::string& name, const glm::mat4& matrix) = 0;
+  virtual void set_uniform_int(const std::string &name, int value) = 0;
+  virtual void set_uniform_float(const std::string &name, float value) = 0;
+  virtual void set_uniform_float3(const std::string &name,
+                                  const glm::vec3 &value) = 0;
+  virtual void set_uniform_float4(const std::string &name,
+                                  const glm::vec4 &value) = 0;
+  virtual void set_uniform_mat4(const std::string &name,
+                                const glm::mat4 &matrix) = 0;
 
-  static std::shared_ptr<Shader> create(const std::string &vertex_path, const std::string &frag_path);
+  virtual void upload_light_environment(const LightEnvironment &lights) = 0;
+
+  static std::shared_ptr<Shader> create(const std::string &vertex_path,
+                                        const std::string &frag_path);
 };

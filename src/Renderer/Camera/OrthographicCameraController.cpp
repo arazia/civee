@@ -12,9 +12,8 @@ OrthographicCameraController::OrthographicCameraController(float aspect_ratio,
                                                  _aspect_ratio * _zoom_level,
                                                  -_zoom_level, _zoom_level);
 
-  // Default Isometric Angle
   _camera->set_rotation({30.0f, -135.0f, 0.0f});
-  _camera->set_position({0.0f, 10.0f, 0.0f});
+  _camera->set_position({5.0f, 10.0f, 10.0f});
   // _camera->set_rotation({ -45.0f, 45.0f, 0.0f });
 }
 
@@ -26,33 +25,21 @@ void OrthographicCameraController::on_update(float delta_time) {
   glm::vec3 forward_dir;
   glm::vec3 right_dir;
 
-  // 1. Define The Absolute Vectors
-  // OpenGL Forward is -Z
   glm::vec3 world_north = {0.0f, 0.0f, -1.0f};
 
-  // THE FIX: We define the starting "East" as -1.0f.
-  // Since we apply a 180-degree rotation offset below, this vector will
-  // be flipped 180 degrees, resulting in +1.0f (Visual Right).
   glm::vec3 world_east = {1.0f, 0.0f, 0.0f};
 
   if (_movement_type == CameraMovementType::CameraRelative) {
-    // 2. Create Rotation Matrix
-    // We add 180.0f to align "Forward" with "Screen Up"
-    // float rotation_offset = 180.0f;
-
     glm::mat4 rotation =
         glm::rotate(glm::mat4(1.0f), glm::radians(rot.y), glm::vec3(0, 1, 0));
 
-    // 3. Rotate World Vectors
     forward_dir = glm::vec3(rotation * glm::vec4(world_north, 0.0f));
     right_dir = glm::vec3(rotation * glm::vec4(world_east, 0.0f));
   } else {
-    // World Absolute Defaults
     forward_dir = {0.0f, 0.0f, -1.0f};
     right_dir = {1.0f, 0.0f, 0.0f};
   }
 
-  // 4. Apply Input
   float velocity = _translation_speed * delta_time;
   glm::vec3 move_vec = {0.0f, 0.0f, 0.0f};
 
@@ -69,7 +56,6 @@ void OrthographicCameraController::on_update(float delta_time) {
     pos += glm::normalize(move_vec) * velocity;
   }
 
-  // 5. Rotation Logic
   if (state[SDL_SCANCODE_Q])
     rot.y += _rotation_speed * delta_time;
   if (state[SDL_SCANCODE_E])
@@ -81,6 +67,7 @@ void OrthographicCameraController::on_update(float delta_time) {
 
 void OrthographicCameraController::on_event(SDL_Event &e) {
   // TODO Rewrite to allow changeable/configurable keybinds
+
   if (e.type == SDL_MOUSEWHEEL) {
     _zoom_level -= e.wheel.y * 0.25f;
     _zoom_level = std::max(_zoom_level, 0.25f);

@@ -4,6 +4,12 @@
 std::unordered_map<std::string, std::shared_ptr<Texture>>
     TextureLibrary::_textures;
 
+std::shared_ptr<Texture> TextureLibrary::_default_texture = nullptr;
+
+void TextureLibrary::init() {
+  _default_texture = load("Missing", "assets/textures/missing.png");
+}
+
 std::shared_ptr<Texture> TextureLibrary::load(const std::string &name,
                                               const std::string &filepath) {
   if (_textures.find(name) != _textures.end()) {
@@ -19,7 +25,7 @@ std::shared_ptr<Texture> TextureLibrary::load(const std::string &name,
     std::cerr << "TextureLibrary: Could not load " << filepath << std::endl;
     // TODO change to default texture (error texture) -> probably load in
     // constructor later
-    return nullptr;
+    return _default_texture;
   }
 }
 
@@ -32,7 +38,7 @@ std::shared_ptr<Texture> TextureLibrary::get(const std::string &name) {
             << std::endl;
   // TODO change to default texture (error texture) -> probably load in
   // constructor later
-  return nullptr;
+  return _default_texture;
 }
 
 bool TextureLibrary::exists(const std::string &name) {

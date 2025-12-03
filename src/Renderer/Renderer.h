@@ -3,6 +3,7 @@
 #include "Renderer/Camera/OrthographicCamera.h"
 #include "Renderer/Data/Buffer.h"
 #include "Renderer/Data/Shader.h"
+#include "Renderer/Scene/LightEnvironment.h"
 #include "Renderer/Scene/Mesh.h"
 #include <map>
 #include <memory>
@@ -25,7 +26,8 @@ public:
   static void shutdown();
 
   static void begin_scene(const std::shared_ptr<OrthographicCamera> &camera,
-                          const std::shared_ptr<Shader> &shader);
+                          const std::shared_ptr<Shader> &shader,
+                          const LightEnvironment &lights);
   static void end_scene();
 
   // dynamic submission

@@ -34,7 +34,7 @@ void Scene::optimise() {
 
 void Scene::render(std::shared_ptr<OrthographicCamera> camera,
                    std::shared_ptr<Shader> shader) {
-  Renderer::begin_scene(camera, shader);
+  Renderer::begin_scene(camera, shader, this->get_light_environment());
 
   for (auto &obj : _game_objects) {
     if (!obj->mesh)

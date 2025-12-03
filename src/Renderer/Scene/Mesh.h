@@ -9,6 +9,7 @@
 
 struct Vertex {
   glm::vec3 position;
+  glm::vec3 normal;
   glm::vec4 color;
   glm::vec2 tex_coord;
 };
@@ -35,6 +36,21 @@ public:
   void set_depth_bias(float bias) { _depth_bias = bias; }
   float get_depth_bias() const { return _depth_bias; }
 
+  void set_polygon_offset(bool enabled, float factor = 1.0f,
+                          float units = 1.0f) {
+    _use_polygon_offset = enabled;
+    _offset_factor = factor;
+    _offset_units = units;
+  }
+
+  bool is_polygon_offset_enabled() const { return _use_polygon_offset; }
+  float get_offset_factor() const { return _offset_factor; }
+  float get_offset_units() const { return _offset_units; }
+
+  // Ensure you also have culling support if you haven't added it yet
+  void set_culling(bool enabled) { _culling_enabled = enabled; }
+  bool is_culling_enabled() const { return _culling_enabled; }
+
   const std::shared_ptr<Texture> &get_texture() const { return _texture; }
 
 private:
@@ -55,5 +71,10 @@ private:
   std::shared_ptr<Texture> _texture;
 
   AABB _aabb;
+
   float _depth_bias = 0.0f;
+  bool _use_polygon_offset = false;
+  float _offset_factor = 0.0f;
+  float _offset_units = 0.0f;
+  bool _culling_enabled = true;
 };

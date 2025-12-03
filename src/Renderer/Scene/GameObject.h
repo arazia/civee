@@ -23,7 +23,7 @@ struct Collider {
   float height = 2.0f;
 };
 
-class GameObject {
+class GameObject : public std::enable_shared_from_this<GameObject> {
 public:
   std::string name = "GameObject";
 
@@ -37,10 +37,18 @@ public:
   Collider collider;
   bool is_static = false;
 
+  std::weak_ptr<GameObject> parent;
+  std::vector<std::shared_ptr<GameObject>> children;
+
   GameObject(const std::shared_ptr<Mesh> &mesh,
              const std::string &name = "GameObject")
       : mesh(mesh), name(name) {
     collider.type = ColliderType::Box;
+  }
+
+  void add_child(std::shared_ptr<GameObject> child) {
+    child->parent = weak_from_this();
+    children.push_back(child);
   }
 
   void set_texture(const std::shared_ptr<Texture> &tex) { texture = tex; }
