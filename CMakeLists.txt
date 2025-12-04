@@ -45,6 +45,8 @@ add_library(civeeCore SHARED
     src/Renderer/Data/Buffer.cpp
     src/Renderer/Data/VertexArray.cpp
     src/Renderer/Data/Texture.cpp
+    src/Renderer/Data/TextureLibrary.cpp
+    src/Renderer/Data/Framebuffer.cpp
     src/Renderer/Scene/Mesh.cpp
     src/Renderer/Scene/Scene.cpp
     src/Renderer/Camera/OrthographicCamera.cpp
