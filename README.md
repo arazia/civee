@@ -1,4 +1,5 @@
 # A Custom-built Engine for building Isometric 2D Games
+## CURRENTLY DEPRECATED - BUILDING A BETTER VERSION USING VULKAN BECAUSE THIS KINDA SUCKED :)
 Planned to have a 2.5D effect, where we render a 3D world but utilise 2D sprite billboarding to create an isometric effect.
   - 3D World allows us to perform much faster calculations and is just better in general.
 
