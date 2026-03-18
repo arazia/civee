@@ -16,7 +16,6 @@ TODO NOW:
 
 Required:
 - Material system
--   // (In a real engine, you would move them to a separate "Static" list or just flag them)
 - Keybind functionality
 - More mesh functionality
 - actual sprites and stuff lmao
